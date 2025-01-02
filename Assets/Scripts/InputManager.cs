@@ -2,13 +2,20 @@ using UnityEngine;
 
 public class InputManager : MonoBehaviour
 {
-    public static InputManager Instance;
+    public static InputManager Instance { get; private set; }
 
     [Header(" Settings ")]
-    [SerializeField] public Vector3 _mousePosition;
+    [SerializeField] private Vector3 _mousePosition;
+    public Vector3 MousePosition { get => _mousePosition; }
 
     private void Awake()
     {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         Instance = this;
     }
 
