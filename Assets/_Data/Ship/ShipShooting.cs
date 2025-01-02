@@ -6,15 +6,26 @@ public class ShipShooting : MonoBehaviour
     [SerializeField] protected Transform _bulletPrefab;
     [SerializeField] protected bool _isShooting = false;
 
-    private void FixedUpdate()
+    [Header(" Settings ")]
+    [SerializeField] protected float _shootDelay;
+    [SerializeField] protected float _shootTimer;
+
+    private void Update()
     {
         IsShooting();
+    }
+    private void FixedUpdate()
+    {
         Shooting();
     }
 
     protected virtual void Shooting()
     {
         if (!_isShooting) return;
+
+        _shootTimer += Time.fixedDeltaTime;
+        if (_shootTimer < _shootDelay) return;
+        _shootTimer = 0f;
 
         Vector3 spawnPos = transform.position;
         Quaternion rotation = transform.parent.rotation;

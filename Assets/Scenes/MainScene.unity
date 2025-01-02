@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mousePosition: {x: 0, y: 0, z: 0}
+  _onFiring: 0
 --- !u!4 &1365833478
 Transform:
   m_ObjectHideFlags: 0
@@ -432,10 +433,6 @@ PrefabInstance:
     - target: {fileID: 2380791886924958392, guid: 7ff3cb4ca58b8f64c80501338ce22c30, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4365729400613395517, guid: 7ff3cb4ca58b8f64c80501338ce22c30, type: 3}
-      propertyPath: _maxSpeed
-      value: 0.01
       objectReference: {fileID: 0}
     - target: {fileID: 8503106740870116486, guid: 7ff3cb4ca58b8f64c80501338ce22c30, type: 3}
       propertyPath: m_Name

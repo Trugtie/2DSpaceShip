@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPosition: {x: 0, y: 0, z: 0}
-  _maxSpeed: 0.1
+  _maxSpeed: 0.01
 --- !u!1 &8503106740870116486
 GameObject:
   m_ObjectHideFlags: 0
@@ -213,3 +213,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 8511538369357923784, guid: 6efee1a7c0035794785976acf6f4014c, type: 3}
   _isShooting: 0
+  _shootDelay: 1
+  _shootTimer: 0
