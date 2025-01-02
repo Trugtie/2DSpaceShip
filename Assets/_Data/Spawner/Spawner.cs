@@ -1,27 +1,13 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
 
-public class Spawner : BaseMonobehaviour
+public abstract class Spawner : BaseMonobehaviour
 {
     private const string PREFABS = "Prefabs";
 
-    public static Spawner Instance { get; private set; }
-
     [Header(" Elements ")]
     [SerializeField] protected List<Transform> _prefabs;
-
-    protected override void Awake()
-    {
-        base.Awake();
-
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        Instance = this;
-    }
 
     protected override void LoadComponents()
     {
@@ -53,11 +39,27 @@ public class Spawner : BaseMonobehaviour
         }
     }
 
-    public virtual Transform Spawn(Vector3 spawnPos, Quaternion rotation)
+    public virtual Transform Spawn(string prefabName, Vector3 spawnPos, Quaternion rotation)
     {
-        Transform prefab = _prefabs[0];
+        Transform prefab = GetPrefabByName(prefabName);
+
+        if (prefab == null)
+        {
+            Debug.LogWarning("Prefab Not Found: " + prefabName);
+            return null;
+        }
+
         Transform newPrefab = Instantiate(prefab, spawnPos, rotation);
         return newPrefab;
     }
 
+    protected virtual Transform GetPrefabByName(string prefabName)
+    {
+        foreach (Transform prefab in _prefabs)
+        {
+            if (prefabName == prefab.name) return prefab;
+        }
+
+        return null;
+    }
 }
