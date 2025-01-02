@@ -8,6 +8,7 @@ public class ShipShooting : MonoBehaviour
 
     private void FixedUpdate()
     {
+        IsShooting();
         Shooting();
     }
 
@@ -21,5 +22,12 @@ public class ShipShooting : MonoBehaviour
         Instantiate(_bulletPrefab, spawnPos, transform.parent.rotation);
 
         Debug.Log("Shooting!");
+    }
+
+    protected virtual bool IsShooting()
+    {
+        _isShooting = InputManager.Instance.OnFiring == 1;
+
+        return _isShooting;
     }
 }

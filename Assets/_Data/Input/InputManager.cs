@@ -6,7 +6,9 @@ public class InputManager : MonoBehaviour
 
     [Header(" Settings ")]
     [SerializeField] private Vector3 _mousePosition;
+    [SerializeField] private float _onFiring;
     public Vector3 MousePosition { get => _mousePosition; }
+    public float OnFiring { get => _onFiring; }
 
     private void Awake()
     {
@@ -19,9 +21,19 @@ public class InputManager : MonoBehaviour
         Instance = this;
     }
 
+    private void Update()
+    {
+        GetMouseDown();
+    }
+
     private void FixedUpdate()
     {
         GetMousePos();
+    }
+
+    protected virtual void GetMouseDown()
+    {
+        _onFiring = Input.GetAxis("Fire1");
     }
 
     protected virtual void GetMousePos()
