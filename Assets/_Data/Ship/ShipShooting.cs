@@ -15,7 +15,11 @@ public class ShipShooting : MonoBehaviour
     {
         if (!_isShooting) return;
 
-        Instantiate(_bulletPrefab);
+        Vector3 spawnPos = transform.position;
+        Quaternion rotation = transform.parent.rotation;
+
+        Instantiate(_bulletPrefab, spawnPos, transform.parent.rotation);
+
         Debug.Log("Shooting!");
     }
 }
