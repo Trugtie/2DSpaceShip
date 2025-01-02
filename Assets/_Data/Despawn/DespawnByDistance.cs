@@ -1,0 +1,32 @@
+using UnityEngine;
+
+public class DespawnByDistance : Despawn
+{
+    [Header(" Elements ")]
+    [SerializeField] protected Camera _mainCamera;
+
+    [Header(" Settings ")]
+    [SerializeField] protected float _limitDistance = 70f;
+    [SerializeField] protected float _currenDistance = 0f;
+
+    protected override void LoadComponents()
+    {
+        LoadCamera();
+    }
+
+    protected virtual void LoadCamera()
+    {
+        if (_mainCamera != null) return;
+
+        _mainCamera = FindFirstObjectByType<Camera>();
+
+        Debug.Log(transform.parent.name + ": LoadCamera", gameObject);
+    }
+
+    protected override bool CanDespawn()
+    {
+        _currenDistance = Vector3.Distance(transform.parent.position, _mainCamera.transform.position);
+        if (_currenDistance > _limitDistance) return true;
+        return false;
+    }
+}

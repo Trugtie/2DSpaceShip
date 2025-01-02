@@ -7,7 +7,7 @@ public class BulletSpawner : Spawner
     [Header(" Elements ")]
     public static BulletSpawner Instance { get; private set; }
 
-    protected virtual void Awake()
+    protected override void Awake()
     {
         base.Awake();
 

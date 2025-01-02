@@ -7,6 +7,10 @@ public class BaseMonobehaviour : MonoBehaviour
         LoadComponents();
     }
 
+    protected virtual void Start()
+    {
+    }
+
     protected virtual void Reset()
     {
         LoadComponents();
@@ -14,6 +18,5 @@ public class BaseMonobehaviour : MonoBehaviour
 
     protected virtual void LoadComponents()
     {
-        //For override
     }
 }
