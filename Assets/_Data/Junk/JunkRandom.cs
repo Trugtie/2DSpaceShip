@@ -26,7 +26,8 @@ public class JunkRandom : BaseMonobehaviour
 
     protected virtual void JunkSpawning()
     {
-        Vector3 spawnPos = transform.position;
+        Transform randomSpawnPoint = _junkCtrl.JunkSpawnPoints.GetRandomSpawnPoint();
+        Vector3 spawnPos = randomSpawnPoint.position;
         Quaternion rotation = Quaternion.identity;
 
         Transform junkTransfom = _junkCtrl.JunkSpawner.Spawn(JunkSpawner.ASTEROID_1, spawnPos, rotation);
