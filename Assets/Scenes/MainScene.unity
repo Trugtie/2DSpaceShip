@@ -419,6 +419,8 @@ GameObject:
   m_Component:
   - component: {fileID: 826465096}
   - component: {fileID: 826465095}
+  - component: {fileID: 826465098}
+  - component: {fileID: 826465097}
   m_Layer: 0
   m_Name: Junk Spawner
   m_TagString: Untagged
@@ -459,6 +461,32 @@ Transform:
   - {fileID: 1722358379}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &826465097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826465094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c4968478829a384e845843f43fc8b13, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _junkSpawner: {fileID: 826465095}
+--- !u!114 &826465098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826465094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3057d3ab38a08c4d9d735ab8742d626, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _junkCtrl: {fileID: 826465097}
 --- !u!1 &1003101936
 GameObject:
   m_ObjectHideFlags: 0
