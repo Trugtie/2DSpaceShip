@@ -15,7 +15,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8511538369357923784
 Transform:
   m_ObjectHideFlags: 0
@@ -89,7 +89,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7032896906409612849}
-  - component: {fileID: 573925526668520725}
+  - component: {fileID: 6120247485381792969}
   m_Layer: 0
   m_Name: Despawn
   m_TagString: Untagged
@@ -112,7 +112,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 8511538369357923784}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &573925526668520725
+--- !u!114 &6120247485381792969
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6038480752922998993}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2a81c23e2f80af94e807eee03d21a813, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c6c632bc611a6f4495e2470cf15520a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
