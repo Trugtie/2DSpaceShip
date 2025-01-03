@@ -1,11 +1,11 @@
 using UnityEngine;
 
-public class BulletFly : ParentObjectFly
+public class JunkFly : ParentObjectFly
 {
     protected override void ResetValue()
     {
         base.ResetValue();
-        _flySpeed = 20f;
+        _flySpeed = 1f;
         _direction = Vector3.right;
     }
 }
