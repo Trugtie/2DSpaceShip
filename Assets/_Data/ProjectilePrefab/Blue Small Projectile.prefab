@@ -125,7 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
-  _limitDistance: 70
+  _limitDistance: 30
   _currenDistance: 0
 --- !u!1 &6155794480770092765
 GameObject:

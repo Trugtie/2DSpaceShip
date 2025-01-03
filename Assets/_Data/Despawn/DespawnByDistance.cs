@@ -6,12 +6,18 @@ public class DespawnByDistance : Despawn
     [SerializeField] protected Camera _mainCamera;
 
     [Header(" Settings ")]
-    [SerializeField] protected float _limitDistance = 70f;
+    [SerializeField] protected float _limitDistance = 30f;
     [SerializeField] protected float _currenDistance = 0f;
 
     protected override void LoadComponents()
     {
         LoadCamera();
+    }
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        _limitDistance = 30f;
     }
 
     protected virtual void LoadCamera()
