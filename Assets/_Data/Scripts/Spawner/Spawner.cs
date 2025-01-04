@@ -13,6 +13,9 @@ public abstract class Spawner : BaseMonobehaviour
     [SerializeField] protected List<Transform> _poolObjs;
     [SerializeField] protected Transform _holder;
 
+    [SerializeField] protected int _spawnedCount;
+    public int SpawnedCount { get => _spawnedCount; }
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -66,6 +69,7 @@ public abstract class Spawner : BaseMonobehaviour
         Transform newPrefab = GetObjFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
         newPrefab.parent = _holder;
+        _spawnedCount++;
 
         return newPrefab;
     }
@@ -100,5 +104,6 @@ public abstract class Spawner : BaseMonobehaviour
     {
         _poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
+        _spawnedCount--;
     }
 }

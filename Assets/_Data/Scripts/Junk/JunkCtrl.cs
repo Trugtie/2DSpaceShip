@@ -22,7 +22,7 @@ public class JunkCtrl : BaseMonobehaviour
         if (_model != null) return;
         _model = transform.Find(MODEL);
 
-        Debug.Log(transform.name + ": LoadModel", gameObject);
+        Debug.LogWarning(transform.name + ": LoadModel", gameObject);
     }
 
     protected virtual void LoadJunkDespawn()
@@ -30,6 +30,6 @@ public class JunkCtrl : BaseMonobehaviour
         if (_junkDespawn != null) return;
         _junkDespawn = GetComponentInChildren<JunkDespawn>();
 
-        Debug.Log(transform.name + ": LoadJunkDespawn", gameObject);
+        Debug.LogWarning(transform.name + ": LoadJunkDespawn", gameObject);
     }
 }

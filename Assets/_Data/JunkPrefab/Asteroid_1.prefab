@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _model: {fileID: 1771656861828457805}
-  _junkDespawn: {fileID: 0}
+  _junkDespawn: {fileID: 3157027943485618235}
 --- !u!1 &1379297000030945625
 GameObject:
   m_ObjectHideFlags: 0
