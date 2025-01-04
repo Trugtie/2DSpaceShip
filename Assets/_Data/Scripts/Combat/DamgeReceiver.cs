@@ -41,6 +41,8 @@ public class DamgeReceiver : BaseMonobehaviour
 
     public virtual void Add(int add)
     {
+        if (_isDead) return;
+
         _currentHP += add;
 
         if (_currentHP > _maxHP) _currentHP = _maxHP;
@@ -48,17 +50,31 @@ public class DamgeReceiver : BaseMonobehaviour
 
     public virtual void Deduct(int deduct)
     {
+        if (_isDead) return;
+
         _currentHP -= deduct;
 
-        if (_currentHP <= 0)
-        {
-            _currentHP = 0;
-            _isDead = true;
-        }
+        if (_currentHP < 0) _currentHP = 0;
+
+        CheckIsDead();
     }
 
-    public virtual bool IsDead()
+    protected virtual void CheckIsDead()
+    {
+        if (!IsDead()) return;
+
+        _isDead = true;
+
+        OnDead();
+    }
+
+    protected virtual bool IsDead()
     {
         return _currentHP <= 0;
+    }
+
+    protected virtual void OnDead()
+    {
+
     }
 }

@@ -97,6 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _model: {fileID: 1771656861828457805}
+  _junkDespawn: {fileID: 0}
 --- !u!1 &1379297000030945625
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,8 +107,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4197547965033309347}
-  - component: {fileID: 8874626429599414004}
   - component: {fileID: 1781612475883394160}
+  - component: {fileID: 6141299101233289847}
   m_Layer: 0
   m_Name: Damge Receiver
   m_TagString: Untagged
@@ -130,21 +131,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 4630556548388113026}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8874626429599414004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1379297000030945625}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5efe84df853c49a4f831281cae386468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _circleCollider2D: {fileID: 1781612475883394160}
-  _currentHP: 1
-  _maxHP: 1
 --- !u!58 &1781612475883394160
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -181,6 +167,23 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.37
+--- !u!114 &6141299101233289847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379297000030945625}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 486b782257bd7dd4083a658d9c04f64f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _circleCollider2D: {fileID: 1781612475883394160}
+  _currentHP: 1
+  _maxHP: 2
+  _isDead: 0
+  _junkCtrl: {fileID: 8614726379305857030}
 --- !u!1 &2891549925241785355
 GameObject:
   m_ObjectHideFlags: 0
