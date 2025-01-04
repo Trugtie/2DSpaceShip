@@ -636,7 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3057d3ab38a08c4d9d735ab8742d626, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _junkSpawnerCtrl: {fileID: 0}
+  _junkSpawnerCtrl: {fileID: 826465097}
 --- !u!4 &955246338 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2380791886924958392, guid: 7ff3cb4ca58b8f64c80501338ce22c30, type: 3}
@@ -949,6 +949,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1913802050}
   - component: {fileID: 1913802049}
+  - component: {fileID: 1913802051}
   m_Layer: 0
   m_Name: Junk Spawn Point
   m_TagString: Untagged
@@ -992,6 +993,20 @@ Transform:
   - {fileID: 212794084}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1913802051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913802048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94084fc35325ee347af701915d57683c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _target: {fileID: 1857372102}
+  _followSpeed: 7
 --- !u!1 &1988692690
 GameObject:
   m_ObjectHideFlags: 0
@@ -1065,6 +1080,10 @@ PrefabInstance:
     - target: {fileID: 457899430096311897, guid: 6efee1a7c0035794785976acf6f4014c, type: 3}
       propertyPath: m_Name
       value: Blue Small Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 457899430096311897, guid: 6efee1a7c0035794785976acf6f4014c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6120247485381792969, guid: 6efee1a7c0035794785976acf6f4014c, type: 3}
       propertyPath: _mainCamera
