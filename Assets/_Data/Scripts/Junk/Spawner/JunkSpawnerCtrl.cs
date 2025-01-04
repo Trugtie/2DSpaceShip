@@ -20,13 +20,13 @@ public class JunkSpawnerCtrl : BaseMonobehaviour
     {
         if (_junkSpawner != null) return;
         _junkSpawner = GetComponent<JunkSpawner>();
-        Debug.Log(transform.name + ": LoadJunkSpawner", gameObject);
+        Debug.LogWarning(transform.name + ": LoadJunkSpawner", gameObject);
     }
 
     protected virtual void LoadJunkSpawnPoints()
     {
         if (_junkSpawnPoints != null) return;
         _junkSpawnPoints = FindFirstObjectByType<JunkSpawnPoints>();
-        Debug.Log(transform.name + ": LoadJunkSpawnPoints", gameObject);
+        Debug.LogWarning(transform.name + ": LoadJunkSpawnPoints", gameObject);
     }
 }

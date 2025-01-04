@@ -11,9 +11,9 @@ public class DamgeReceiver : BaseMonobehaviour
     [SerializeField] protected int _maxHP = 2;
     [SerializeField] protected bool _isDead = false;
 
-    protected override void Start()
+    protected override void OnEnable()
     {
-        base.Start();
+        base.OnEnable();
         Reborn();
     }
 

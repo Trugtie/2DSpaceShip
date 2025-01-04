@@ -8,7 +8,8 @@ public class JunkSpawnerRandom : BaseMonobehaviour
 
     [Header(" Settings ")]
     [SerializeField] protected float _spawnDelayTime;
-    [SerializeField] protected float _spawnDelayTimer;
+    protected float _spawnDelayTimer;
+
     [SerializeField] protected int _spawnCountLimit;
 
     protected override void LoadComponents()
@@ -17,11 +18,19 @@ public class JunkSpawnerRandom : BaseMonobehaviour
         LoadJunkSpawnerCtrl();
     }
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        _spawnDelayTime = 2f;
+        _spawnCountLimit = 30;
+    }
+
+
     protected virtual void LoadJunkSpawnerCtrl()
     {
         if (_junkSpawnerCtrl != null) return;
         _junkSpawnerCtrl = GetComponent<JunkSpawnerCtrl>();
-        Debug.Log(transform.name + ": LoadJunkSpawnerCtrl", gameObject);
+        Debug.LogWarning(transform.name + ": LoadJunkSpawnerCtrl", gameObject);
     }
 
     protected virtual void FixedUpdate()
@@ -41,7 +50,8 @@ public class JunkSpawnerRandom : BaseMonobehaviour
         Vector3 spawnPos = randomSpawnPoint.position;
         Quaternion rotation = Quaternion.identity;
 
-        Transform junkTransfom = _junkSpawnerCtrl.JunkSpawner.Spawn(JunkSpawner.ASTEROID_1, spawnPos, rotation);
+        Transform prefab = _junkSpawnerCtrl.JunkSpawner.GetRandomPrefab();
+        Transform junkTransfom = _junkSpawnerCtrl.JunkSpawner.Spawn(prefab, spawnPos, rotation);
         junkTransfom.gameObject.SetActive(true);
     }
 

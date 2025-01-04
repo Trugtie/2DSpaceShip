@@ -7,7 +7,7 @@ public class DespawnByDistance : Despawn
 
     [Header(" Settings ")]
     [SerializeField] protected float _limitDistance = 30f;
-    [SerializeField] protected float _currenDistance = 0f;
+    [SerializeField] protected float _currentDistance = 0f;
 
     protected override void LoadComponents()
     {
@@ -24,15 +24,15 @@ public class DespawnByDistance : Despawn
     {
         if (_mainCamera != null) return;
 
-        _mainCamera = FindFirstObjectByType<Camera>();
+        _mainCamera = Camera.main;
 
-        Debug.Log(transform.parent.name + ": LoadCamera", gameObject);
+        Debug.LogWarning(transform.parent.name + ": LoadCamera", gameObject);
     }
 
     protected override bool CanDespawn()
     {
-        _currenDistance = Vector3.Distance(transform.parent.position, _mainCamera.transform.position);
-        if (_currenDistance > _limitDistance) return true;
+        _currentDistance = Vector3.Distance(transform.parent.position, _mainCamera.transform.position);
+        if (_currentDistance > _limitDistance) return true;
         return false;
     }
 }

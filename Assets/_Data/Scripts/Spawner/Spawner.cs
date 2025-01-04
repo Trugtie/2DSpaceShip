@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.UIElements;
 using UnityEngine.Video;
@@ -29,7 +30,7 @@ public abstract class Spawner : BaseMonobehaviour
 
         _holder = transform.Find(HOLDER);
 
-        Debug.Log(transform.name + ": LoadHodler", gameObject);
+        Debug.LogWarning(transform.name + ": LoadHodler", gameObject);
     }
 
     protected virtual void LoadPrefabs()
@@ -45,7 +46,7 @@ public abstract class Spawner : BaseMonobehaviour
 
         HidePrefabs();
 
-        Debug.Log(transform.name + ": LoadPrefabs", gameObject);
+        Debug.LogWarning(transform.name + ": LoadPrefabs", gameObject);
     }
 
     protected virtual void HidePrefabs()
@@ -66,6 +67,11 @@ public abstract class Spawner : BaseMonobehaviour
             return null;
         }
 
+        return Spawn(prefab, spawnPos, rotation);
+    }
+
+    public virtual Transform Spawn(Transform prefab, Vector3 spawnPos, Quaternion rotation)
+    {
         Transform newPrefab = GetObjFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPos, rotation);
         newPrefab.parent = _holder;
@@ -105,5 +111,10 @@ public abstract class Spawner : BaseMonobehaviour
         _poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
         _spawnedCount--;
+    }
+
+    public virtual Transform GetRandomPrefab()
+    {
+        return _prefabs[Random.Range(0, _prefabs.Count)];
     }
 }
