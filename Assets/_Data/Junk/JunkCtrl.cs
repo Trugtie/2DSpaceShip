@@ -1,32 +1,25 @@
 using UnityEngine;
 
-[RequireComponent(typeof(JunkSpawner))]
 public class JunkCtrl : BaseMonobehaviour
 {
+    protected const string MODEL = "Model";
+
     [Header(" Elements ")]
-    [SerializeField] protected JunkSpawner _junkSpawner;
-    [SerializeField] protected JunkSpawnPoints _junkSpawnPoints;
-    public JunkSpawner JunkSpawner { get => _junkSpawner; }
-    public JunkSpawnPoints JunkSpawnPoints { get => _junkSpawnPoints; }
+    [SerializeField] protected Transform _model;
+    public Transform Model { get => _model; }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadJunkSpawner();
-        LoadJunkSpawnPoints();
+        LoadModel();
     }
 
-    protected virtual void LoadJunkSpawner()
+    protected virtual void LoadModel()
     {
-        if (_junkSpawner != null) return;
-        _junkSpawner = GetComponent<JunkSpawner>();
-        Debug.Log(transform.name + ": LoadJunkSpawner", gameObject);
-    }
+        if (_model != null) return;
 
-    protected virtual void LoadJunkSpawnPoints()
-    {
-        if (_junkSpawnPoints != null) return;
-        _junkSpawnPoints = FindFirstObjectByType<JunkSpawnPoints>();
-        Debug.Log(transform.name + ": LoadJunkSpawnPoints", gameObject);
+        _model = transform.Find(MODEL);
+
+        Debug.Log(transform.name + ": LoadModel", gameObject);
     }
 }

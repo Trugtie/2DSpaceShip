@@ -1,22 +1,22 @@
 using UnityEngine;
 
-[RequireComponent(typeof(JunkCtrl))]
+[RequireComponent(typeof(JunkSpawnerCtrl))]
 public class JunkRandom : BaseMonobehaviour
 {
     [Header(" Elements")]
-    [SerializeField] protected JunkCtrl _junkCtrl;
+    [SerializeField] protected JunkSpawnerCtrl _junkSpawnerCtrl;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadJunkCtrl();
+        LoadJunkSpawnerCtrl();
     }
 
-    protected virtual void LoadJunkCtrl()
+    protected virtual void LoadJunkSpawnerCtrl()
     {
-        if (_junkCtrl != null) return;
-        _junkCtrl = GetComponent<JunkCtrl>();
-        Debug.Log(transform.name + ": LoadJunkCtrl", gameObject);
+        if (_junkSpawnerCtrl != null) return;
+        _junkSpawnerCtrl = GetComponent<JunkSpawnerCtrl>();
+        Debug.Log(transform.name + ": LoadJunkSpawnerCtrl", gameObject);
     }
 
     protected override void Start()
@@ -26,11 +26,11 @@ public class JunkRandom : BaseMonobehaviour
 
     protected virtual void JunkSpawning()
     {
-        Transform randomSpawnPoint = _junkCtrl.JunkSpawnPoints.GetRandomSpawnPoint();
+        Transform randomSpawnPoint = _junkSpawnerCtrl.JunkSpawnPoints.GetRandomSpawnPoint();
         Vector3 spawnPos = randomSpawnPoint.position;
         Quaternion rotation = Quaternion.identity;
 
-        Transform junkTransfom = _junkCtrl.JunkSpawner.Spawn(JunkSpawner.ASTEROID_1, spawnPos, rotation);
+        Transform junkTransfom = _junkSpawnerCtrl.JunkSpawner.Spawn(JunkSpawner.ASTEROID_1, spawnPos, rotation);
         junkTransfom.gameObject.SetActive(true);
 
         Invoke(nameof(JunkSpawning), 1f);
