@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class DamgeReceiver : BaseMonobehaviour
+public abstract class DamgeReceiver : BaseMonobehaviour
 {
     [Header(" Elements ")]
     [SerializeField] protected CircleCollider2D _circleCollider2D;
@@ -23,6 +23,12 @@ public class DamgeReceiver : BaseMonobehaviour
         LoadCircleCollider2D();
     }
 
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        Reborn();
+    }
+
     protected virtual void LoadCircleCollider2D()
     {
         if (_circleCollider2D != null) return;
@@ -30,7 +36,7 @@ public class DamgeReceiver : BaseMonobehaviour
         _circleCollider2D.isTrigger = true;
         _circleCollider2D.radius = 0.37f;
 
-        Debug.Log(transform.name + ": LoadCircleCollider2D", gameObject);
+        Debug.LogWarning(transform.name + ": LoadCircleCollider2D", gameObject);
     }
 
     protected virtual void Reborn()
@@ -73,8 +79,5 @@ public class DamgeReceiver : BaseMonobehaviour
         return _currentHP <= 0;
     }
 
-    protected virtual void OnDead()
-    {
-
-    }
+    protected abstract void OnDead();
 }
