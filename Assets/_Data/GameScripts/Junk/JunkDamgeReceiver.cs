@@ -24,6 +24,7 @@ public class JunkDamgeReceiver : DamgeReceiver
     {
         OnDeadVFX();
         _junkCtrl.JunkDespawn.DespawnOject();
+        DropSystem.Instance.Drop(_junkCtrl.JunkSO._dropList);
     }
 
     protected virtual void OnDeadVFX()

@@ -14,3 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   JunkName: Asteroid_1
   JunkHP: 2
+  _dropList:
+  - ItemSO: {fileID: 11400000, guid: e66ff2de6735f7048be75c5252bce684, type: 2}
+    Rate: 0
+    MinDrop: 0
+    MaxDrop: 0
