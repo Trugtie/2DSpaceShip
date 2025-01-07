@@ -1,0 +1,9 @@
+using System;
+
+[Serializable]
+public class ItemInventory
+{
+    public ItemProfileSO ItemProfile;
+    public int itemCount = 0;
+    public int maxStack = 7;
+}
