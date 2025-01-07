@@ -37,4 +37,9 @@ public class ItemPickupable : BaseMonobehaviour
     {
         Destroy(transform.parent.gameObject);
     }
+
+    private void OnMouseDown()
+    {
+        PlayerCtrl.Instance.PlayerPickup.ItemPickup(this);
+    }
 }
