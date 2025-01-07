@@ -36,30 +36,6 @@ public class BulletImpact : BulletAbtract
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        BulletCtrl.DamgeSender.SendDamgeToObject(collision.transform);
-        CreateImpactVFX(collision);
-    }
-
-    protected virtual void CreateImpactVFX(Collider2D collision)
-    {
-        string impactName = GetImpactVFX();
-
-        Vector3 hitPos = collision.ClosestPoint(transform.position);
-        Quaternion hitRot = CalculateRotateAngleToShooter(hitPos);
-
-        Transform impactVFX = VFXSpawner.Instance.Spawn(impactName, hitPos, hitRot);
-        impactVFX.gameObject.SetActive(true);
-    }
-
-    protected virtual Quaternion CalculateRotateAngleToShooter(Vector3 hitPos)
-    {
-        Vector3 directionToShooter = (_bulletCtrl.Shooter.position - hitPos).normalized;
-        float angle = Mathf.Atan2(directionToShooter.y, directionToShooter.x) * Mathf.Rad2Deg;
-        return Quaternion.Euler(0f, 0f, angle);
-    }
-
-    protected virtual string GetImpactVFX()
-    {
-        return VFXSpawner.IMPACT_1;
+        BulletCtrl.DamgeSender.SendDamgeToObject(collision, _bulletCtrl.Shooter);
     }
 }
