@@ -47,6 +47,12 @@ public class ItemLooter : BaseMonobehaviour
     {
         ItemPickupable itemPickupable = collision.GetComponent<ItemPickupable>();
         if (itemPickupable == null) return;
-        Debug.Log("Pickup: " + itemPickupable.gameObject.transform.parent.name);
+
+        ItemCode itemCode = itemPickupable.GetItemCode();
+
+        if (_inventory.AddItem(itemCode, 1))
+        {
+            itemPickupable.Picked();
+        }
     }
 }

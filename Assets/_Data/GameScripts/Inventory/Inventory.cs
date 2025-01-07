@@ -18,7 +18,7 @@ public class Inventory : BaseMonobehaviour
     {
         ItemInventory itemInventory = GetItemInventory(itemCode);
         int newCount = itemInventory.itemCount + addCount;
-        if (newCount > _maxSlot)
+        if (newCount > itemInventory.maxStack)
         {
             Debug.Log(transform.name + $": AddItem: {itemCode.ToString()} reached max slot");
             return false;

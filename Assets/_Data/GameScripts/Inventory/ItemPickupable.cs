@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
@@ -20,5 +21,20 @@ public class ItemPickupable : BaseMonobehaviour
         _circleCollider2D.radius = 0.3f;
 
         Debug.LogWarning(transform.name + ": LoadCircleCollider2D", gameObject);
+    }
+
+    public static ItemCode StringToItemCode(string name)
+    {
+        return (ItemCode)Enum.Parse(typeof(ItemCode), name);
+    }
+
+    public virtual ItemCode GetItemCode()
+    {
+        return StringToItemCode(transform.parent.name);
+    }
+
+    public virtual void Picked()
+    {
+        Destroy(transform.parent.gameObject);
     }
 }
