@@ -15,7 +15,7 @@ MonoBehaviour:
   JunkName: Asteroid_1
   JunkHP: 2
   _dropList:
-  - ItemSO: {fileID: 11400000, guid: e66ff2de6735f7048be75c5252bce684, type: 2}
+  - ItemProfileSO: {fileID: 11400000, guid: cb9fd38a0a31ece4d9921c9c0485e7eb, type: 2}
     Rate: 0
     MinDrop: 0
     MaxDrop: 0

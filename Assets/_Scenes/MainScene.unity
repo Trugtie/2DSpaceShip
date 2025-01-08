@@ -1649,6 +1649,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 698360589}
     m_Modifications:
+    - target: {fileID: 714637875802004586, guid: 5d3e4cd50fba8314f85b19c9c10b9ffa, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 3599766522536627239, guid: 5d3e4cd50fba8314f85b19c9c10b9ffa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1715,6 +1719,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 698360589}
     m_Modifications:
+    - target: {fileID: 1407210434961957217, guid: b53ffc1dc1b7bbb4eaab315ac645dd0e, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 519420031}
     - target: {fileID: 4859497150530999124, guid: b53ffc1dc1b7bbb4eaab315ac645dd0e, type: 3}
       propertyPath: m_Name
       value: GoldOre

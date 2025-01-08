@@ -10,8 +10,6 @@ public class Inventory : BaseMonobehaviour
     protected override void Start()
     {
         base.Start();
-        AddItem(ItemCode.IronOre, 1);
-        AddItem(ItemCode.GoldOre, 2);
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)
@@ -24,7 +22,7 @@ public class Inventory : BaseMonobehaviour
             return false;
         }
 
-        itemInventory.itemCount = addCount;
+        itemInventory.itemCount = newCount;
         return true;
     }
 
@@ -58,7 +56,7 @@ public class Inventory : BaseMonobehaviour
 
     protected virtual ItemInventory AddEmptyProfile(ItemCode itemCode)
     {
-        string path = "ItemProfiles";
+        string path = "Item";
         ItemProfileSO[] itemProfiles = Resources.LoadAll<ItemProfileSO>(path);
 
         if (itemProfiles.Length < 1)
