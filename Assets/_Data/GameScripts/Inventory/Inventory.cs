@@ -24,7 +24,25 @@ public class Inventory : BaseMonobehaviour
             return false;
         }
 
-        itemInventory.itemCount += addCount;
+        itemInventory.itemCount = addCount;
+        return true;
+    }
+
+    public virtual bool DeductItem(ItemCode itemCode, int deductCount)
+    {
+        ItemInventory itemInventory = GetItemInventory(itemCode);
+        int newCount = itemInventory.itemCount - deductCount;
+        if (newCount < 0) return false;
+
+        itemInventory.itemCount = newCount;
+        return true;
+    }
+
+    public virtual bool TryDeductItem(ItemCode itemCode, int deductCount)
+    {
+        ItemInventory itemInventory = GetItemInventory(itemCode);
+        int newCount = itemInventory.itemCount - deductCount;
+        if (newCount < 0) return false;
         return true;
     }
 

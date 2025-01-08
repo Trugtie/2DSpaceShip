@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
-public class ItemPickupable : BaseMonobehaviour
+public class ItemPickupable : ItemAbtract
 {
     [Header(" Elements ")]
     [SerializeField] protected CircleCollider2D _circleCollider2D;
@@ -25,7 +25,16 @@ public class ItemPickupable : BaseMonobehaviour
 
     public static ItemCode StringToItemCode(string name)
     {
-        return (ItemCode)Enum.Parse(typeof(ItemCode), name);
+        try
+        {
+            return (ItemCode)Enum.Parse(typeof(ItemCode), name);
+        }
+        catch (ArgumentException e)
+        {
+            Debug.LogError(e.ToString());
+            return ItemCode.NoItem;
+        }
+
     }
 
     public virtual ItemCode GetItemCode()
@@ -35,7 +44,7 @@ public class ItemPickupable : BaseMonobehaviour
 
     public virtual void Picked()
     {
-        Destroy(transform.parent.gameObject);
+        ItemCtrl.ItemDespawn.DespawnOject();
     }
 
     private void OnMouseDown()
