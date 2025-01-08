@@ -10,78 +10,107 @@ public class Inventory : BaseMonobehaviour
     protected override void Start()
     {
         base.Start();
+        this.AddItem(ItemCode.IronOre, 21);
+        this.AddItem(ItemCode.CopperSword, 3);
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)
     {
-        ItemInventory itemInventory = GetItemInventory(itemCode);
-        int newCount = itemInventory.itemCount + addCount;
-        if (newCount > itemInventory.maxStack)
+        ItemProfileSO itemProfile = GetItemProfileByItemCode(itemCode);
+
+        int addRemain = addCount;
+        ItemInventory itemNotFullStack;
+
+        for (int i = 0; i < _maxSlot; i++)
         {
-            Debug.Log(transform.name + $": AddItem: {itemCode.ToString()} reached max slot");
-            return false;
-        }
+            itemNotFullStack = FindItemNotFullStack(itemProfile);
 
-        itemInventory.itemCount = newCount;
-        return true;
-    }
-
-    public virtual bool DeductItem(ItemCode itemCode, int deductCount)
-    {
-        ItemInventory itemInventory = GetItemInventory(itemCode);
-        int newCount = itemInventory.itemCount - deductCount;
-        if (newCount < 0) return false;
-
-        itemInventory.itemCount = newCount;
-        return true;
-    }
-
-    public virtual bool TryDeductItem(ItemCode itemCode, int deductCount)
-    {
-        ItemInventory itemInventory = GetItemInventory(itemCode);
-        int newCount = itemInventory.itemCount - deductCount;
-        if (newCount < 0) return false;
-        return true;
-    }
-
-    protected virtual ItemInventory GetItemInventory(ItemCode itemCode)
-    {
-        ItemInventory itemInventory = _items.Find((item) => item.ItemProfile.ItemCode == itemCode);
-
-        if (itemInventory == null)
-            itemInventory = AddEmptyProfile(itemCode);
-
-        return itemInventory;
-    }
-
-    protected virtual ItemInventory AddEmptyProfile(ItemCode itemCode)
-    {
-        string path = "Item";
-        ItemProfileSO[] itemProfiles = Resources.LoadAll<ItemProfileSO>(path);
-
-        if (itemProfiles.Length < 1)
-        {
-            Debug.LogWarning(transform.name + ": AddEmptyProfile: No one ItemProfile!", gameObject);
-            return null;
-        }
-
-        foreach (ItemProfileSO itemProfile in itemProfiles)
-        {
-            if (itemCode != itemProfile.ItemCode) continue;
-
-            ItemInventory itemInventory = new ItemInventory()
+            if (itemNotFullStack == null)
             {
-                ItemProfile = itemProfile,
-                maxStack = itemProfile.defaultMaxStack,
-            };
+                if (IsFullInventory()) return false;
 
-            _items.Add(itemInventory);
+                itemNotFullStack = CreateEmptyItemInventory(itemProfile);
+                _items.Add(itemNotFullStack);
+            }
 
+            int newCount = itemNotFullStack.itemCount + addRemain;
+
+            int maxStackOfItemNotFullStack = GetMaxStackOfItem(itemNotFullStack);
+
+            if (newCount > maxStackOfItemNotFullStack)
+            {
+                int itemNeedToAdd = maxStackOfItemNotFullStack - itemNotFullStack.itemCount;
+                newCount = itemNotFullStack.itemCount + itemNeedToAdd;
+                addRemain -= itemNeedToAdd;
+            }
+            else
+            {
+                addRemain -= newCount;
+            }
+
+            itemNotFullStack.itemCount = newCount;
+            if (addRemain < 1) break;
+        }
+
+        return true;
+    }
+
+    protected virtual ItemProfileSO GetItemProfileByItemCode(ItemCode itemCode)
+    {
+        const string ITEM = "Item";
+
+        ItemProfileSO[] itemProfileSOs = Resources.LoadAll<ItemProfileSO>(ITEM);
+
+        foreach (ItemProfileSO itemProfileSO in itemProfileSOs)
+        {
+            if (itemProfileSO.ItemCode != itemCode) continue;
+            return itemProfileSO;
+        }
+
+        return null;
+    }
+
+    protected virtual ItemInventory FindItemNotFullStack(ItemProfileSO itemProfile)
+    {
+        foreach (ItemInventory itemInventory in _items)
+        {
+            if (itemInventory.ItemProfile != itemProfile) continue;
+            if (IsItemFullStack(itemInventory)) continue;
             return itemInventory;
         }
 
-        Debug.LogWarning(transform.name + ": AddEmptyProfile: ItemProfile Not Found!", gameObject);
-
         return null;
+    }
+
+    protected virtual bool IsItemFullStack(ItemInventory itemInventory)
+    {
+        if (itemInventory == null) return true;
+
+        int maxStack = GetMaxStackOfItem(itemInventory);
+        return itemInventory.itemCount >= maxStack;
+    }
+
+    protected virtual bool IsFullInventory()
+    {
+        if (_items.Count >= _maxSlot) return true;
+        return false;
+    }
+
+    protected virtual ItemInventory CreateEmptyItemInventory(ItemProfileSO itemProfile)
+    {
+        ItemInventory emptyItemInventory = new ItemInventory()
+        {
+            ItemProfile = itemProfile,
+            maxStack = itemProfile.defaultMaxStack,
+        };
+
+        return emptyItemInventory;
+    }
+
+    protected virtual int GetMaxStackOfItem(ItemInventory itemInventory)
+    {
+        if (itemInventory == null) return 0;
+
+        return itemInventory.maxStack;
     }
 }
