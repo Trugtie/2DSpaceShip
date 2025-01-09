@@ -1842,7 +1842,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3600718404074027399, guid: 7ff3cb4ca58b8f64c80501338ce22c30, type: 3}
       propertyPath: _maxSlot
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8503106740870116486, guid: 7ff3cb4ca58b8f64c80501338ce22c30, type: 3}
       propertyPath: m_Name

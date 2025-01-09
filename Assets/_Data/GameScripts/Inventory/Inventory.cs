@@ -7,11 +7,14 @@ public class Inventory : BaseMonobehaviour
     [SerializeField] protected int _maxSlot = 70;
     [SerializeField] protected List<ItemInventory> _items;
 
+    public List<ItemInventory> Items => _items;
+
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.IronOre, 21);
         this.AddItem(ItemCode.CopperSword, 3);
+        this.AddItem(ItemCode.IronOre, 10);
+        this.AddItem(ItemCode.GoldOre, 10);
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)
@@ -101,7 +104,7 @@ public class Inventory : BaseMonobehaviour
         ItemInventory emptyItemInventory = new ItemInventory()
         {
             ItemProfile = itemProfile,
-            maxStack = itemProfile.defaultMaxStack,
+            maxStack = itemProfile.DefaultMaxStack,
         };
 
         return emptyItemInventory;
@@ -112,5 +115,33 @@ public class Inventory : BaseMonobehaviour
         if (itemInventory == null) return 0;
 
         return itemInventory.maxStack;
+    }
+
+    public virtual void DeductItem(ItemCode itemCode, int deductCount)
+    {
+        ItemInventory itemInventory;
+        int deductValue;
+
+        for (int i = _items.Count - 1; i >= 0; i--)
+        {
+            if (deductCount <= 0) break;
+
+            itemInventory = _items[i];
+
+            if (itemInventory.ItemProfile.ItemCode != itemCode) continue;
+
+            if (deductCount > itemInventory.itemCount)
+            {
+                deductValue = itemInventory.itemCount;
+                deductCount -= deductValue;
+            }
+            else
+            {
+                deductValue = deductCount;
+                deductCount -= deductValue;
+            }
+
+            itemInventory.itemCount -= deductValue;
+        }
     }
 }

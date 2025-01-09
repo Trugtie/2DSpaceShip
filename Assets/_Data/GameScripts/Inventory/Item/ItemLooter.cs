@@ -1,10 +1,9 @@
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D), typeof(Rigidbody2D))]
-public class ItemLooter : BaseMonobehaviour
+public class ItemLooter : InventoryAbtract
 {
     [Header(" Elements ")]
-    [SerializeField] protected Inventory _inventory;
     [SerializeField] protected CircleCollider2D _circleCollider2D;
     [SerializeField] protected Rigidbody2D _rigidbody2D;
 
@@ -13,7 +12,6 @@ public class ItemLooter : BaseMonobehaviour
         base.LoadComponents();
         LoadCollider2D();
         LoadRigidbody2D();
-        LoadInventory();
     }
 
     protected virtual void LoadCollider2D()
@@ -33,14 +31,6 @@ public class ItemLooter : BaseMonobehaviour
         _rigidbody2D.gravityScale = 0f;
 
         Debug.LogWarning(transform.name + ": LoadRigidbody2D", gameObject);
-    }
-
-    protected virtual void LoadInventory()
-    {
-        if (_inventory != null) return;
-        _inventory = transform.parent.GetComponent<Inventory>();
-
-        Debug.LogWarning(transform.name + ": LoadInventory", gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
