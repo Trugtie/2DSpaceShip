@@ -132,6 +132,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _inventory: {fileID: 3600718404074027399}
+  _maxLevel: 9
 --- !u!1 &4647515648350412188
 GameObject:
   m_ObjectHideFlags: 0
@@ -164,6 +165,7 @@ Transform:
   m_Children:
   - {fileID: 3098110864368187244}
   - {fileID: 1435114307155725485}
+  - {fileID: 1190578103095385863}
   m_Father: {fileID: 2380791886924958392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3600718404074027399
@@ -322,6 +324,50 @@ MonoBehaviour:
   _isShooting: 0
   _shootDelay: 0.5
   _shootTimer: 0
+--- !u!1 &8821155474137694921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1190578103095385863}
+  - component: {fileID: 39843047805276692}
+  m_Layer: 0
+  m_Name: ItemDropper
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1190578103095385863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821155474137694921}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 9029444323457249827}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &39843047805276692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8821155474137694921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6cfd6f43b662d444b8da90251cf86573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8912811455394591059
 GameObject:
   m_ObjectHideFlags: 0

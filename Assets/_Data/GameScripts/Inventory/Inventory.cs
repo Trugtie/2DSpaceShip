@@ -12,9 +12,9 @@ public class Inventory : BaseMonobehaviour
     protected override void Start()
     {
         base.Start();
-        this.AddItem(ItemCode.CopperSword, 3);
-        this.AddItem(ItemCode.IronOre, 10);
-        this.AddItem(ItemCode.GoldOre, 10);
+        this.AddItem(ItemCode.CopperSword, 1);
+        this.AddItem(ItemCode.IronOre, 9);
+        this.AddItem(ItemCode.GoldOre, 8);
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)
@@ -142,6 +142,17 @@ public class Inventory : BaseMonobehaviour
             }
 
             itemInventory.itemCount -= deductValue;
+        }
+
+        ClearEmptyItem();
+    }
+
+    protected virtual void ClearEmptyItem()
+    {
+        for (int i = 0; i < _items.Count; i++)
+        {
+            if (_items[i].itemCount < 1)
+                _items.RemoveAt(i);
         }
     }
 }
