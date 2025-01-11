@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,8 +14,31 @@ public class Inventory : BaseMonobehaviour
     {
         base.Start();
         this.AddItem(ItemCode.CopperSword, 1);
-        this.AddItem(ItemCode.IronOre, 9);
-        this.AddItem(ItemCode.GoldOre, 8);
+        this.AddItem(ItemCode.IronOre, 30);
+        this.AddItem(ItemCode.GoldOre, 30);
+    }
+
+    public virtual bool AddItem(ItemInventory itemInventory)
+    {
+        int addCount = itemInventory.itemCount;
+        ItemProfileSO itemProfile = itemInventory.ItemProfile;
+        ItemType itemType = itemProfile.ItemType;
+        ItemCode itemCode = itemProfile.ItemCode;
+
+        if (itemType == ItemType.Equipment) return AddEquipment(itemInventory); ;
+
+        return AddItem(itemCode, addCount);
+    }
+
+    public bool AddEquipment(ItemInventory itemPicked)
+    {
+        if (IsFullInventory()) return false;
+
+        ItemInventory itemInventory = itemPicked.Clone();
+
+        _items.Add(itemInventory);
+
+        return true;
     }
 
     public virtual bool AddItem(ItemCode itemCode, int addCount)

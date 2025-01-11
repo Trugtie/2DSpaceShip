@@ -38,9 +38,9 @@ public class ItemLooter : InventoryAbtract
         ItemPickupable itemPickupable = collision.GetComponent<ItemPickupable>();
         if (itemPickupable == null) return;
 
-        ItemCode itemCode = itemPickupable.GetItemCode();
+        ItemInventory itemInventory = itemPickupable.ItemCtrl.ItemInventory;
 
-        if (_inventory.AddItem(itemCode, 1))
+        if (_inventory.AddItem(itemInventory))
         {
             itemPickupable.Picked();
         }

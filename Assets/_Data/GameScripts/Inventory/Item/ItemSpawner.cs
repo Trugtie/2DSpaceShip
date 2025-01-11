@@ -31,12 +31,13 @@ public class ItemSpawner : Spawner
     {
         ItemCode itemCode = itemIventory.ItemProfile.ItemCode;
 
-        Transform itemDrop = Spawn(itemCode.ToString(), dropPosition, dropRotation);
+        Transform itemDropped = Spawn(itemCode.ToString(), dropPosition, dropRotation);
 
-        if (itemDrop == null) return null;
+        if (itemDropped == null) return null;
 
-        itemDrop.gameObject.SetActive(true);
+        itemDropped.gameObject.SetActive(true);
+        itemDropped.GetComponent<ItemCtrl>().SetItemIventory(itemIventory);
 
-        return itemDrop;
+        return itemDropped;
     }
 }

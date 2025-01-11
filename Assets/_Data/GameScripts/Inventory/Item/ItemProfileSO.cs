@@ -9,4 +9,19 @@ public class ItemProfileSO : ScriptableObject
     public string ItemName = "No Name";
     public int DefaultMaxStack = 7;
     public List<ItemRecipe> ItemRecipesNeedToUpgradePerLevel;
+
+    public static ItemProfileSO FindByItemCode(ItemCode itemCode)
+    {
+        string path = "Item";
+
+        ItemProfileSO[] itemProfileSOs = Resources.LoadAll<ItemProfileSO>(path);
+
+        foreach (ItemProfileSO itemProfileSO in itemProfileSOs)
+        {
+            if (itemProfileSO.ItemCode != itemCode) continue;
+            return itemProfileSO;
+        }
+
+        return null;
+    }
 }

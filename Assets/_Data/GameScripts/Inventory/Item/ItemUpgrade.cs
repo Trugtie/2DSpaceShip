@@ -12,12 +12,14 @@ public class ItemUpgrade : InventoryAbtract
         base.Start();
 
         //Test
-        Invoke(nameof(TestUpgrade), 10);
+        Invoke(nameof(TestUpgrade), 1);
     }
 
     //Test
     private void TestUpgrade()
     {
+        UpgradeItemLevel(0);
+        UpgradeItemLevel(0);
         UpgradeItemLevel(0);
     }
 
@@ -50,7 +52,7 @@ public class ItemUpgrade : InventoryAbtract
     {
         if (itemRecipesNeedToUpgradePerLevel.Count < 1) return false;
 
-        bool isItemReachedMaxLevel = currentLevel > itemRecipesNeedToUpgradePerLevel.Count;
+        bool isItemReachedMaxLevel = currentLevel >= itemRecipesNeedToUpgradePerLevel.Count;
         if (isItemReachedMaxLevel) return false;
 
         return true;
