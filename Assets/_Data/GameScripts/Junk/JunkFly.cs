@@ -21,7 +21,7 @@ public class JunkFly : ParentObjectFly
     protected virtual void GetFlyDirection()
     {
         Vector3 objPos = transform.parent.position;
-        Vector3 mainCameraPos = GameCtrl.Instance.GetMainCameraPosition();
+        Vector3 mainCameraPos = GetCameraPosition();
 
         mainCameraPos.x = Random.Range(-_cameraRandomPosBound, _cameraRandomPosBound);
         mainCameraPos.y = Random.Range(-_cameraRandomPosBound, _cameraRandomPosBound);
@@ -31,7 +31,13 @@ public class JunkFly : ParentObjectFly
         LookAtDirection(direction);
 
         Debug.DrawLine(objPos, mainCameraPos + direction * 7, Color.red, Mathf.Infinity);
+    }
 
+    protected virtual Vector3 GetCameraPosition()
+    {
+        if (GameCtrl.Instance == null) return Vector3.zero;
+
+        return GameCtrl.Instance.GetMainCameraPosition(); ;
     }
 
     protected void LookAtDirection(Vector3 direction)
