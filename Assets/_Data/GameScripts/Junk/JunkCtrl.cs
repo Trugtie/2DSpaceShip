@@ -8,18 +8,18 @@ public class JunkCtrl : BaseMonobehaviour
     [Header(" Elements ")]
     [SerializeField] protected Transform _model;
     [SerializeField] protected JunkDespawn _junkDespawn;
-    [SerializeField] protected JunkSO _junkSO;
+    [SerializeField] protected ShootableObjectSO _shootableObjectSO;
 
     public Transform Model { get => _model; }
     public JunkDespawn JunkDespawn { get => _junkDespawn; }
-    public JunkSO JunkSO => _junkSO;
+    public ShootableObjectSO ShootableObjectSO => _shootableObjectSO;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadModel();
         LoadJunkDespawn();
-        LoadJunkSO();
+        LoadShootableObjectSO();
     }
 
     protected virtual void LoadModel()
@@ -38,13 +38,13 @@ public class JunkCtrl : BaseMonobehaviour
         Debug.LogWarning(transform.name + ": LoadJunkDespawn", gameObject);
     }
 
-    protected virtual void LoadJunkSO()
+    protected virtual void LoadShootableObjectSO()
     {
-        if (_junkSO != null) return;
+        if (_shootableObjectSO != null) return;
 
-        string resPath = "Junk/" + transform.name;
-        _junkSO = Resources.Load<JunkSO>(resPath);
+        string resPath = "ShootableObject/Junk/" + transform.name;
+        _shootableObjectSO = Resources.Load<ShootableObjectSO>(resPath);
 
-        Debug.LogWarning(transform.name + ": LoadJunkSO " + resPath, gameObject);
+        Debug.LogWarning(transform.name + ": ShootableObjectSO " + resPath, gameObject);
     }
 }

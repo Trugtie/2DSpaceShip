@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99422bc35ead0624d8878f00ab0877c4, type: 3}
-  m_Name: Asteroid_2
+  m_Script: {fileID: 11500000, guid: 96be74d8967cfec48a6fc4bbb4867502, type: 3}
+  m_Name: Asteroid_3
   m_EditorClassIdentifier: 
-  JunkName: Asteroid_2
-  JunkHP: 4
+  ShootableObjectName: Asteroid_3
+  ObjectType: 1
+  ShootableObjectHP: 6
   _dropList:
-  - ItemProfileSO: {fileID: 11400000, guid: 040176f142928ca43a0900f08a802951, type: 2}
+  - ItemProfileSO: {fileID: 11400000, guid: a3f1da67f936a2d40ada93a20fa46394, type: 2}
     Rate: 0
     MinDrop: 0
     MaxDrop: 0

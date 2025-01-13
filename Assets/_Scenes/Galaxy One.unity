@@ -351,6 +351,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6681051990717142132, guid: 3ea4220d292cdfa4381845b50c859047, type: 3}
+      propertyPath: _shootableObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f435760b32b4d240b62a5e193c4f3c3, type: 2}
     - target: {fileID: 8002155154286873964, guid: 3ea4220d292cdfa4381845b50c859047, type: 3}
       propertyPath: m_Name
       value: Asteroid_2
@@ -657,6 +661,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6401940514223935463, guid: 282fe33d5631fc24787e431c93bfbea5, type: 3}
+      propertyPath: _shootableObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 9720ef21a0c548049abb9bf65a489c71, type: 2}
     - target: {fileID: 7774661625607026176, guid: 282fe33d5631fc24787e431c93bfbea5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1714,6 +1722,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8614726379305857030, guid: e16cb1a0221a6f941932c97472cb3601, type: 3}
+      propertyPath: _shootableObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: e9f4366d452d7484892eaeabe109109e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2149,6 +2161,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6681051990717142132, guid: 3ea4220d292cdfa4381845b50c859047, type: 3}
+      propertyPath: _junkSO
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6681051990717142132, guid: 3ea4220d292cdfa4381845b50c859047, type: 3}
+      propertyPath: _shootableObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4f435760b32b4d240b62a5e193c4f3c3, type: 2}
     - target: {fileID: 8002155154286873964, guid: 3ea4220d292cdfa4381845b50c859047, type: 3}
       propertyPath: m_Name
       value: Asteroid_2
@@ -2490,6 +2510,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Asteroid_3
       objectReference: {fileID: 0}
+    - target: {fileID: 3549472527887853152, guid: 282fe33d5631fc24787e431c93bfbea5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401940514223935463, guid: 282fe33d5631fc24787e431c93bfbea5, type: 3}
+      propertyPath: _junkSO
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6401940514223935463, guid: 282fe33d5631fc24787e431c93bfbea5, type: 3}
+      propertyPath: _shootableObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 9720ef21a0c548049abb9bf65a489c71, type: 2}
     - target: {fileID: 7774661625607026176, guid: 282fe33d5631fc24787e431c93bfbea5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2674,6 +2706,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8614726379305857030, guid: e16cb1a0221a6f941932c97472cb3601, type: 3}
+      propertyPath: _junkSO
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8614726379305857030, guid: e16cb1a0221a6f941932c97472cb3601, type: 3}
+      propertyPath: _shootableObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: e9f4366d452d7484892eaeabe109109e, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
