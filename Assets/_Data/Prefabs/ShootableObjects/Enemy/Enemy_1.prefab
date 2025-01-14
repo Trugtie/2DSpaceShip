@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 21282658385685930}
   - component: {fileID: 7774430513256218271}
   m_Layer: 0
-  m_Name: Ship Follow Target
+  m_Name: Object Follow Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -145,6 +145,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2839102048499028798}
   - component: {fileID: 4548176519710001152}
+  - component: {fileID: 4483216638273951950}
   m_Layer: 0
   m_Name: Object Appearing Bigger
   m_TagString: Untagged
@@ -185,6 +186,20 @@ MonoBehaviour:
   _speedScale: 0.01
   _startScale: 0.1
   _endScale: 1
+--- !u!114 &4483216638273951950
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034778537232191390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54fc8f6c9c8a5fc4191b1dc93b9c812c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _shootableObjectCtrl: {fileID: 7068093784655633955}
+  _objectAppearing: {fileID: 4548176519710001152}
 --- !u!1 &3624976709615898859
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +258,7 @@ GameObject:
   - component: {fileID: 4906570032518123732}
   - component: {fileID: 1338181215631760902}
   m_Layer: 0
-  m_Name: Ship Shooting By Distance
+  m_Name: Object Shooting By Distance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -335,6 +350,7 @@ MonoBehaviour:
   _model: {fileID: 4003657622155698993}
   _despawn: {fileID: 3516638708335361471}
   _shootableObjectSO: {fileID: 11400000, guid: de1b48e704e13824fb5acac7a32673d1, type: 2}
+  _objectShooting: {fileID: 1338181215631760902}
   _spawnPoints: {fileID: 0}
 --- !u!1 &9022239329921182925
 GameObject:

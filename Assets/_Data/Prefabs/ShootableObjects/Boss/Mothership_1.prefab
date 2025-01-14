@@ -54,6 +54,7 @@ MonoBehaviour:
   _model: {fileID: 8361934461642491729}
   _despawn: {fileID: 4200646879719221179}
   _shootableObjectSO: {fileID: 11400000, guid: 7de1b62ac6efaa44cbb15b10aedca9bc, type: 2}
+  _objectShooting: {fileID: 7444579813847101063}
   _spawnPoints: {fileID: 822962832952592333}
 --- !u!1 &3838874329983896229
 GameObject:
@@ -146,7 +147,7 @@ GameObject:
   - component: {fileID: 2314119610524890829}
   - component: {fileID: 2842053966162621051}
   m_Layer: 0
-  m_Name: Ship Follow Target
+  m_Name: Object Follow Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -609,7 +610,7 @@ GameObject:
   - component: {fileID: 9199146205731148824}
   - component: {fileID: 7444579813847101063}
   m_Layer: 0
-  m_Name: Ship Shooting By Distance
+  m_Name: Object Shooting By Distance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
