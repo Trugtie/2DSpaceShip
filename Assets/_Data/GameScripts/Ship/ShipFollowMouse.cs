@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ShipFollowMouse : ShipMovement
+public class ShipFollowMouse : ObjectMovement
 {
     protected override void FixedUpdate()
     {

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ShipMovement : BaseMonobehaviour
+public class ObjectMovement : BaseMonobehaviour
 {
     [Header(" ShipMovement Settings ")]
     [SerializeField] protected Vector3 _targetPosition;

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public abstract class ShipShooting : BaseMonobehaviour
+public abstract class ObjectShooting : BaseMonobehaviour
 {
     [Header(" ShipShooting Elements ")]
     [SerializeField] protected bool _isShooting = false;

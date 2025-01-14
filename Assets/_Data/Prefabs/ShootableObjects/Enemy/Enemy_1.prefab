@@ -135,6 +135,56 @@ MonoBehaviour:
   _maxHP: 4
   _isDead: 0
   _shootableObjectCtrl: {fileID: 7068093784655633955}
+--- !u!1 &3034778537232191390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2839102048499028798}
+  - component: {fileID: 4548176519710001152}
+  m_Layer: 0
+  m_Name: Object Appearing Bigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2839102048499028798
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034778537232191390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3193908928236942656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4548176519710001152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3034778537232191390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a54325ab167c3342b122cf41e658680, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isAppearing: 0
+  _isAppeared: 0
+  _currentScale: 0
+  _speedScale: 0.01
+  _startScale: 0.1
+  _endScale: 1
 --- !u!1 &3624976709615898859
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +317,7 @@ Transform:
   - {fileID: 7359028355509945970}
   - {fileID: 21282658385685930}
   - {fileID: 4906570032518123732}
+  - {fileID: 2839102048499028798}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7068093784655633955
@@ -284,6 +335,7 @@ MonoBehaviour:
   _model: {fileID: 4003657622155698993}
   _despawn: {fileID: 3516638708335361471}
   _shootableObjectSO: {fileID: 11400000, guid: de1b48e704e13824fb5acac7a32673d1, type: 2}
+  _spawnPoints: {fileID: 0}
 --- !u!1 &9022239329921182925
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipShootingByDistance : ShipShooting
+public class ShipShootingByDistance : ObjectShooting
 {
     [Header(" ShipShootingByDistance Elements ")]
     [SerializeField] protected Transform _target;

@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ShipFollowTarget : ShipMovement
+public class ShipFollowTarget : ObjectMovement
 {
     [Header(" ShipFollowTarget Elements ")]
     [SerializeField] protected Transform _target;
