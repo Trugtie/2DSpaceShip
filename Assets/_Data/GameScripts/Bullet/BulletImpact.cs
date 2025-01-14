@@ -3,7 +3,7 @@ using UnityEngine;
 [RequireComponent(typeof(CircleCollider2D), typeof(Rigidbody2D))]
 public class BulletImpact : BulletAbtract
 {
-    [Header(" Elements ")]
+    [Header(" BulletImpact Elements ")]
     [SerializeField] protected CircleCollider2D _circleCollider2D;
     [SerializeField] protected Rigidbody2D _rigidbody2D;
 
@@ -12,7 +12,6 @@ public class BulletImpact : BulletAbtract
         base.LoadComponents();
         LoadCircleCollider2D();
         LoadRigidbody2D();
-
     }
 
     protected virtual void LoadCircleCollider2D()
@@ -36,6 +35,8 @@ public class BulletImpact : BulletAbtract
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.transform.parent == BulletCtrl.Shooter) return;
+
         BulletCtrl.DamgeSender.SendDamgeToObject(collision, _bulletCtrl.Shooter);
     }
 }

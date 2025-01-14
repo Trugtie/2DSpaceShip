@@ -1,12 +1,12 @@
 using UnityEngine;
 
-public class ShipShooting : MonoBehaviour
+public abstract class ShipShooting : BaseMonobehaviour
 {
-    [Header(" Elements ")]
+    [Header(" ShipShooting Elements ")]
     [SerializeField] protected bool _isShooting = false;
 
-    [Header(" Settings ")]
-    [SerializeField] protected float _shootDelay;
+    [Header(" ShipShooting Settings ")]
+    [SerializeField] protected float _shootDelay = 1f;
     [SerializeField] protected float _shootTimer;
 
     private void Update()
@@ -16,6 +16,12 @@ public class ShipShooting : MonoBehaviour
     private void FixedUpdate()
     {
         Shooting();
+    }
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        _shootDelay = 1f;
     }
 
     protected virtual void Shooting()
@@ -38,10 +44,5 @@ public class ShipShooting : MonoBehaviour
         bullet.gameObject.SetActive(true);
     }
 
-    protected virtual bool IsShooting()
-    {
-        _isShooting = InputManager.Instance.OnFiring == 1;
-
-        return _isShooting;
-    }
+    protected abstract bool IsShooting();
 }

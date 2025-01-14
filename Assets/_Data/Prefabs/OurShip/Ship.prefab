@@ -193,7 +193,7 @@ GameObject:
   - component: {fileID: 5329593843235455723}
   - component: {fileID: 2046675647887908622}
   m_Layer: 0
-  m_Name: Ship Movement
+  m_Name: Ship Follow Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -228,6 +228,91 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetPosition: {x: 0, y: 0, z: 0}
   _maxSpeed: 0.01
+--- !u!1 &6829803769645899739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6315446713687321703}
+  - component: {fileID: 5143878371455275508}
+  - component: {fileID: 285589127859548934}
+  m_Layer: 0
+  m_Name: Ship Damge Receiver
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6315446713687321703
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829803769645899739}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2380791886924958392}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &5143878371455275508
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829803769645899739}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!114 &285589127859548934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6829803769645899739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f5b51e380761bd4d8fb7370a379295b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _circleCollider2D: {fileID: 5143878371455275508}
+  _currentHP: 2
+  _maxHP: 2
+  _isDead: 0
 --- !u!1 &8503106740870116486
 GameObject:
   m_ObjectHideFlags: 0
@@ -261,6 +346,7 @@ Transform:
   - {fileID: 2451288222096964052}
   - {fileID: 5329593843235455723}
   - {fileID: 47440267624194884}
+  - {fileID: 6315446713687321703}
   - {fileID: 9029444323457249827}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -286,9 +372,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 47440267624194884}
-  - component: {fileID: 1996458355934492589}
+  - component: {fileID: 4364818176701826322}
   m_Layer: 0
-  m_Name: Ship Shooting
+  m_Name: Ship Shooting By Mouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -309,7 +395,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2380791886924958392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1996458355934492589
+--- !u!114 &4364818176701826322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -318,11 +404,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 8722694458410702043}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 872855b505efb924d8c9075852e6ed7a, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e6fdfd0d0649254f9a6742337676bb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isShooting: 0
-  _shootDelay: 0.5
+  _shootDelay: 1
   _shootTimer: 0
 --- !u!1 &8821155474137694921
 GameObject:

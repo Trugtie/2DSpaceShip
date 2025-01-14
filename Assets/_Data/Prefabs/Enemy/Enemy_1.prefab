@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 21282658385685930}
   - component: {fileID: 7774430513256218271}
   m_Layer: 0
-  m_Name: ShipMovement
+  m_Name: Ship Follow Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -182,6 +182,56 @@ MonoBehaviour:
   _mainCamera: {fileID: 0}
   _limitDistance: 25
   _currentDistance: 0
+--- !u!1 &3638671125747053920
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4906570032518123732}
+  - component: {fileID: 1338181215631760902}
+  m_Layer: 0
+  m_Name: Ship Shooting By Distance
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4906570032518123732
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638671125747053920}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3193908928236942656}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1338181215631760902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3638671125747053920}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f40885d98ab7ec44b41e490c2357d8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isShooting: 0
+  _shootDelay: 1
+  _shootTimer: 0
+  _target: {fileID: 0}
+  _distanceWithTarget: 0
+  _shootingDistance: 10
 --- !u!1 &4892355578721564133
 GameObject:
   m_ObjectHideFlags: 0
@@ -216,6 +266,7 @@ Transform:
   - {fileID: 1641650228955035121}
   - {fileID: 7359028355509945970}
   - {fileID: 21282658385685930}
+  - {fileID: 4906570032518123732}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7068093784655633955
