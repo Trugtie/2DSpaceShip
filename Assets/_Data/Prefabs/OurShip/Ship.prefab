@@ -191,7 +191,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5329593843235455723}
-  - component: {fileID: 4365729400613395517}
+  - component: {fileID: 2046675647887908622}
   m_Layer: 0
   m_Name: Ship Movement
   m_TagString: Untagged
@@ -214,7 +214,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2380791886924958392}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4365729400613395517
+--- !u!114 &2046675647887908622
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -223,7 +223,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6719886939181726068}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 979e849c7d78d6d479107c75657d47f2, type: 3}
+  m_Script: {fileID: 11500000, guid: d24a8c383090413498151fedad10c1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPosition: {x: 0, y: 0, z: 0}
@@ -368,6 +368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6cfd6f43b662d444b8da90251cf86573, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _inventory: {fileID: 0}
 --- !u!1 &8912811455394591059
 GameObject:
   m_ObjectHideFlags: 0

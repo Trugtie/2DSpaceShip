@@ -1,24 +1,24 @@
-using Mono.Cecil;
+using System;
 using UnityEngine;
 
-public class JunkCtrl : BaseMonobehaviour
+public abstract class ShootableObjectCtrl : BaseMonobehaviour
 {
     protected const string MODEL = "Model";
 
-    [Header(" Elements ")]
+    [Header(" ShootableObjectCtrl Elements ")]
     [SerializeField] protected Transform _model;
-    [SerializeField] protected Despawn _junkDespawn;
+    [SerializeField] protected Despawn _despawn;
     [SerializeField] protected ShootableObjectSO _shootableObjectSO;
 
     public Transform Model { get => _model; }
-    public Despawn JunkDespawn { get => _junkDespawn; }
+    public Despawn Despawn { get => _despawn; }
     public ShootableObjectSO ShootableObjectSO => _shootableObjectSO;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadModel();
-        LoadJunkDespawn();
+        LoadDespawn();
         LoadShootableObjectSO();
     }
 
@@ -30,21 +30,23 @@ public class JunkCtrl : BaseMonobehaviour
         Debug.LogWarning(transform.name + ": LoadModel", gameObject);
     }
 
-    protected virtual void LoadJunkDespawn()
+    protected virtual void LoadDespawn()
     {
-        if (_junkDespawn != null) return;
-        _junkDespawn = GetComponentInChildren<Despawn>();
+        if (_despawn != null) return;
+        _despawn = GetComponentInChildren<Despawn>();
 
-        Debug.LogWarning(transform.name + ": LoadJunkDespawn", gameObject);
+        Debug.LogWarning(transform.name + ": LoadDespawn", gameObject);
     }
 
     protected virtual void LoadShootableObjectSO()
     {
         if (_shootableObjectSO != null) return;
 
-        string resPath = "ShootableObject/Junk/" + transform.name;
+        string resPath = $"ShootableObject/{GetStringFromObjectType()}/" + transform.name;
         _shootableObjectSO = Resources.Load<ShootableObjectSO>(resPath);
 
         Debug.LogWarning(transform.name + ": ShootableObjectSO " + resPath, gameObject);
     }
+
+    protected abstract string GetStringFromObjectType();
 }

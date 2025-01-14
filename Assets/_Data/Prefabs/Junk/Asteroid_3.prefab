@@ -137,7 +137,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _model: {fileID: 8869688674273889961}
   _junkDespawn: {fileID: 8241942567996546668}
-  _junkSO: {fileID: 11400000, guid: ab7f96d316b10454388c25e5ceb57e4c, type: 2}
+  _shootableObjectSO: {fileID: 11400000, guid: 9720ef21a0c548049abb9bf65a489c71, type: 2}
 --- !u!1 &5426760211425615258
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +477,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7785139692429410979}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ad6b69d41292c444b0ee0c434845d7a, type: 3}
+  m_Script: {fileID: 11500000, guid: d0b0b5747e6d11148bf7eea206cbebec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}
