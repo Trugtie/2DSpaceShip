@@ -512,7 +512,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 492197449}
+  - component: {fileID: 492197452}
   - component: {fileID: 492197450}
+  - component: {fileID: 492197451}
   m_Layer: 0
   m_Name: Enemy Spawner
   m_TagString: Untagged
@@ -554,6 +556,35 @@ MonoBehaviour:
   _poolObjs: []
   _holder: {fileID: 1109351697}
   _spawnedCount: 0
+--- !u!114 &492197451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492197448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40512cd3a7d2f514c83ba2e0e90cc316, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnerCtrl: {fileID: 492197452}
+  _spawnDelayTime: 2
+  _spawnCountLimit: 30
+--- !u!114 &492197452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 492197448}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0b48f3ee4710847aea74e42fc3835a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawner: {fileID: 492197450}
+  _spawnPoints: {fileID: 1913802052}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -972,7 +1003,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &826465095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,7 +1053,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _junkSpawner: {fileID: 826465095}
-  _junkSpawnPoints: {fileID: 1913802049}
+  _spawnPoints: {fileID: 1913802052}
 --- !u!114 &826465098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2046,32 +2077,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1913802050}
-  - component: {fileID: 1913802049}
+  - component: {fileID: 1913802052}
   - component: {fileID: 1913802051}
   m_Layer: 0
-  m_Name: Junk Spawn Point
+  m_Name: Spawn Point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1913802049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1913802048}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f72e22add87bd8c4ea5761128d442626, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spawnPoints:
-  - {fileID: 1988692691}
-  - {fileID: 1042815342}
-  - {fileID: 73829570}
-  - {fileID: 212794084}
 --- !u!4 &1913802050
 Transform:
   m_ObjectHideFlags: 0
@@ -2105,6 +2119,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _target: {fileID: 1857372102}
   _followSpeed: 7
+--- !u!114 &1913802052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1913802048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b1e3c5bd6297a419853f81c0e5c662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spawnPoints:
+  - {fileID: 1988692691}
+  - {fileID: 1042815342}
+  - {fileID: 73829570}
+  - {fileID: 212794084}
 --- !u!1 &1944974895
 GameObject:
   m_ObjectHideFlags: 0

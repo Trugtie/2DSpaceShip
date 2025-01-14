@@ -1,10 +1,10 @@
 using UnityEngine;
 
-[RequireComponent(typeof(JunkSpawnerCtrl))]
-public class JunkSpawnerRandom : BaseMonobehaviour
+[RequireComponent(typeof(SpawnerCtrl))]
+public class SpawnerRandom : BaseMonobehaviour
 {
     [Header(" Elements")]
-    [SerializeField] protected JunkSpawnerCtrl _junkSpawnerCtrl;
+    [SerializeField] protected SpawnerCtrl _spawnerCtrl;
 
     [Header(" Settings ")]
     [SerializeField] protected float _spawnDelayTime;
@@ -15,7 +15,7 @@ public class JunkSpawnerRandom : BaseMonobehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadJunkSpawnerCtrl();
+        LoadSpawnerCtrl();
     }
 
     protected override void ResetValue()
@@ -26,19 +26,19 @@ public class JunkSpawnerRandom : BaseMonobehaviour
     }
 
 
-    protected virtual void LoadJunkSpawnerCtrl()
+    protected virtual void LoadSpawnerCtrl()
     {
-        if (_junkSpawnerCtrl != null) return;
-        _junkSpawnerCtrl = GetComponent<JunkSpawnerCtrl>();
-        Debug.LogWarning(transform.name + ": LoadJunkSpawnerCtrl", gameObject);
+        if (_spawnerCtrl != null) return;
+        _spawnerCtrl = GetComponent<SpawnerCtrl>();
+        Debug.LogWarning(transform.name + ": LoadSpawnerCtrl", gameObject);
     }
 
     protected virtual void FixedUpdate()
     {
-        JunkSpawning();
+        Spawning();
     }
 
-    protected virtual void JunkSpawning()
+    protected virtual void Spawning()
     {
         if (IsReachSpawnLimit()) return;
 
@@ -46,18 +46,18 @@ public class JunkSpawnerRandom : BaseMonobehaviour
         if (_spawnDelayTimer < _spawnDelayTime) return;
         _spawnDelayTimer = 0;
 
-        Transform randomSpawnPoint = _junkSpawnerCtrl.SpawnPoints.GetRandomSpawnPoint();
+        Transform randomSpawnPoint = _spawnerCtrl.SpawnPoints.GetRandomSpawnPoint();
         Vector3 spawnPos = randomSpawnPoint.position;
         Quaternion rotation = Quaternion.identity;
 
-        Transform prefab = _junkSpawnerCtrl.JunkSpawner.GetRandomPrefab();
-        Transform junkTransfom = _junkSpawnerCtrl.JunkSpawner.Spawn(prefab, spawnPos, rotation);
+        Transform prefab = _spawnerCtrl.Spawner.GetRandomPrefab();
+        Transform junkTransfom = _spawnerCtrl.Spawner.Spawn(prefab, spawnPos, rotation);
         junkTransfom.gameObject.SetActive(true);
     }
 
     protected virtual bool IsReachSpawnLimit()
     {
-        int currentJunk = _junkSpawnerCtrl.JunkSpawner.SpawnedCount;
+        int currentJunk = _spawnerCtrl.Spawner.SpawnedCount;
 
         return currentJunk >= _spawnCountLimit;
     }

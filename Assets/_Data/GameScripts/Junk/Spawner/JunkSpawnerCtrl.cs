@@ -5,15 +5,15 @@ public class JunkSpawnerCtrl : BaseMonobehaviour
 {
     [Header(" Elements ")]
     [SerializeField] protected JunkSpawner _junkSpawner;
-    [SerializeField] protected JunkSpawnPoints _junkSpawnPoints;
+    [SerializeField] protected SpawnPoints _spawnPoints;
     public JunkSpawner JunkSpawner { get => _junkSpawner; }
-    public JunkSpawnPoints JunkSpawnPoints { get => _junkSpawnPoints; }
+    public SpawnPoints SpawnPoints { get => _spawnPoints; }
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadJunkSpawner();
-        LoadJunkSpawnPoints();
+        LoadSpawnPoints();
     }
 
     protected virtual void LoadJunkSpawner()
@@ -23,10 +23,10 @@ public class JunkSpawnerCtrl : BaseMonobehaviour
         Debug.LogWarning(transform.name + ": LoadJunkSpawner", gameObject);
     }
 
-    protected virtual void LoadJunkSpawnPoints()
+    protected virtual void LoadSpawnPoints()
     {
-        if (_junkSpawnPoints != null) return;
-        _junkSpawnPoints = FindFirstObjectByType<JunkSpawnPoints>();
-        Debug.LogWarning(transform.name + ": LoadJunkSpawnPoints", gameObject);
+        if (_spawnPoints != null) return;
+        _spawnPoints = FindFirstObjectByType<SpawnPoints>();
+        Debug.LogWarning(transform.name + ": LoadSpawnPoints", gameObject);
     }
 }

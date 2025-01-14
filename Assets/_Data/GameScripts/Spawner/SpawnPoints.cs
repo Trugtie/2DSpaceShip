@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class SpawnPoints : BaseMonobehaviour
+public class SpawnPoints : BaseMonobehaviour
 {
     [Header(" Elements ")]
     [SerializeField] protected List<Transform> _spawnPoints;
