@@ -345,6 +345,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetPosition: {x: 0, y: 0, z: 0}
   _maxSpeed: 0.01
+  _rotateSpeed: 100
 --- !u!1 &6829803769645899739
 GameObject:
   m_ObjectHideFlags: 0
