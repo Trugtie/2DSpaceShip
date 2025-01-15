@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class ShipFollowMouse : ObjectMovement
+public class ObjectLookAtMouse : ObjectLookAtTarget
 {
     protected override void FixedUpdate()
     {
@@ -12,8 +12,7 @@ public class ShipFollowMouse : ObjectMovement
     protected override void ResetValue()
     {
         base.ResetValue();
-        _maxSpeed = 0.01f;
-        _rotateSpeed = 100f;
+        _rotateSpeed = 10f;
     }
 
     protected void GetMousePosition()

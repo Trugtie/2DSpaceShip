@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ShipShootingByMouse : ObjectShooting
+public class ObjectShootingByMouse : ObjectShooting
 {
     protected override bool IsShooting()
     {
