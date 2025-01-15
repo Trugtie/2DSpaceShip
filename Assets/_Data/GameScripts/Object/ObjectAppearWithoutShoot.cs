@@ -30,16 +30,20 @@ public class ObjectAppearWithoutShoot : ShootableObjectAbtract, IObjectAppearObs
 
     private void RegisterObjectAppearObserver()
     {
+        OnAppearStart();
         _objectAppearing.AddObserver(this);
     }
 
     public void OnAppearStart()
     {
         _shootableObjectCtrl.ObjectShooting.gameObject.SetActive(false);
+        _shootableObjectCtrl.ObjectLookAtTarget.gameObject.SetActive(false);
     }
 
     public void OnAppearFinish()
     {
         _shootableObjectCtrl.ObjectShooting.gameObject.SetActive(true);
+        _shootableObjectCtrl.ObjectLookAtTarget.gameObject.SetActive(true);
+        _shootableObjectCtrl.Spawner.Hold(transform.parent);
     }
 }

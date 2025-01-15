@@ -117,4 +117,9 @@ public abstract class Spawner : BaseMonobehaviour
     {
         return _prefabs[Random.Range(0, _prefabs.Count)];
     }
+
+    public virtual void Hold(Transform obj)
+    {
+        obj.parent = _holder;
+    }
 }

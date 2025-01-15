@@ -12,7 +12,7 @@ public abstract class ShootableObjectCtrl : BaseMonobehaviour
     [SerializeField] protected ObjectShooting _objectShooting;
     [SerializeField] protected ObjectMovement _objectMovement;
     [SerializeField] protected ObjectLookAtTarget _objectLookAtTarget;
-
+    [SerializeField] protected Spawner _spawner;
     public Transform Model => _model;
     public Despawn Despawn => _despawn;
     public ShootableObjectSO ShootableObjectSO => _shootableObjectSO;
@@ -20,6 +20,7 @@ public abstract class ShootableObjectCtrl : BaseMonobehaviour
     public ObjectShooting ObjectShooting => _objectShooting;
     public ObjectMovement ObjectMovement => _objectMovement;
     public ObjectLookAtTarget ObjectLookAtTarget => _objectLookAtTarget;
+    public Spawner Spawner => _spawner;
 
     protected override void LoadComponents()
     {
@@ -30,6 +31,15 @@ public abstract class ShootableObjectCtrl : BaseMonobehaviour
         LoadObjectShooting();
         LoadObjectMovement();
         LoadObjectLookAtTarget();
+        LoadSpawner();
+    }
+
+    private void LoadSpawner()
+    {
+        if (_spawner != null) return;
+        _spawner = transform?.parent?.parent.GetComponent<Spawner>();
+
+        Debug.LogWarning(transform.name + ": LoadSpawner", gameObject);
     }
 
     protected virtual void LoadObjectLookAtTarget()

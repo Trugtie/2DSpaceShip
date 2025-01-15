@@ -77,7 +77,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _spawnPoints:
   - {fileID: 0}
-  - {fileID: 0}
 --- !u!1 &2389935918645713383
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,7 +370,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetPosition: {x: 0, y: 0, z: 0}
-  _rotateSpeed: 2
+  _rotateSpeed: 1
   _player: {fileID: 0}
 --- !u!1 &4892355578721564133
 GameObject:
@@ -431,6 +430,7 @@ MonoBehaviour:
   _objectShooting: {fileID: 1338181215631760902}
   _objectMovement: {fileID: 8407738141656360684}
   _objectLookAtTarget: {fileID: 2553221153255817263}
+  _spawner: {fileID: 0}
   _spawnPoints: {fileID: 7551744223905075229}
 --- !u!1 &6296071589409746035
 GameObject:
@@ -559,7 +559,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: f94df059a55ade342918fe7d0e8c2299, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
