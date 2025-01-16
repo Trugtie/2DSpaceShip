@@ -63,15 +63,8 @@ public class ItemSpawner : Spawner
                 }
             }
 
-            Debug.Log("===========================");
-            Debug.Log("item: " + item.ItemProfileSO.ItemName);
-            Debug.Log("rate: " + itemRate + "/" + rate);
-            Debug.Log("itemRate: " + itemRate);
-            Debug.Log("itemDropMore: " + itemDropMore);
-
             if (rate <= itemRate)
             {
-                Debug.Log("DROPPED");
                 dropItems.Add(item);
             }
         }

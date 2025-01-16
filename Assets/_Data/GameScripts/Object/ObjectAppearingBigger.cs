@@ -32,15 +32,15 @@ public class ObjectAppearingBigger : ObjectAppearing
 
     protected override void Appearing()
     {
+        if (_isAppeared) return;
+
         _currentScale += _speedScale;
         transform.parent.localScale = new Vector3(_currentScale, _currentScale, _currentScale);
 
-        if (_currentScale >= _endScale) Appear();
-    }
-
-    public override void Appear()
-    {
-        base.Appear();
-        transform.parent.localScale = new Vector3(_endScale, _endScale, _endScale);
+        if (_currentScale >= _endScale)
+        {
+            transform.parent.localScale = new Vector3(_endScale, _endScale, _endScale);
+            this.Appear();
+        }
     }
 }

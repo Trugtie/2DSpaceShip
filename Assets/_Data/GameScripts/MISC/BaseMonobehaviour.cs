@@ -16,6 +16,11 @@ public class BaseMonobehaviour : MonoBehaviour
 
     }
 
+    protected virtual void OnDisable()
+    {
+
+    }
+
     protected virtual void Reset()
     {
         LoadComponents();

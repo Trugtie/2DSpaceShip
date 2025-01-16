@@ -5,11 +5,9 @@ using UnityEngine;
 public abstract class ObjectAppearing : BaseMonobehaviour
 {
     [Header(" ObjectAppearing Settings ")]
-    [SerializeField] protected bool _isAppearing = false;
     [SerializeField] protected bool _isAppeared = false;
     [SerializeField] protected List<IObjectAppearObserver> _observer = new List<IObjectAppearObserver>();
 
-    public bool IsAppearing => _isAppearing;
     public bool IsAppeared => _isAppeared;
 
     protected override void Start()
@@ -17,6 +15,14 @@ public abstract class ObjectAppearing : BaseMonobehaviour
         base.Start();
         OnAppearStart();
     }
+
+    protected override void OnDisable()
+    {
+        base.OnDisable();
+        _isAppeared = false;
+        OnAppearStart();
+    }
+
 
     protected virtual void FixedUpdate()
     {
@@ -28,7 +34,6 @@ public abstract class ObjectAppearing : BaseMonobehaviour
     public virtual void Appear()
     {
         _isAppeared = true;
-        _isAppearing = false;
         OnAppearFinish();
     }
 

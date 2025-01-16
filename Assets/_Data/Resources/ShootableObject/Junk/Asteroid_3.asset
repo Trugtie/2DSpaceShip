@@ -17,6 +17,6 @@ MonoBehaviour:
   ShootableObjectHP: 6
   _dropList:
   - ItemProfileSO: {fileID: 11400000, guid: 040176f142928ca43a0900f08a802951, type: 2}
-    DropRate: 100000
+    DropRate: 500000
   - ItemProfileSO: {fileID: 11400000, guid: cb9fd38a0a31ece4d9921c9c0485e7eb, type: 2}
     DropRate: 100000
