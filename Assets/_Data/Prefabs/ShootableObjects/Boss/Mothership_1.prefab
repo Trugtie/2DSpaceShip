@@ -152,11 +152,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _model: {fileID: 8361934461642491729}
-  _despawn: {fileID: 4200646879719221179}
+  _despawn: {fileID: 0}
   _shootableObjectSO: {fileID: 11400000, guid: 7de1b62ac6efaa44cbb15b10aedca9bc, type: 2}
   _objectShooting: {fileID: 7444579813847101063}
   _objectMovement: {fileID: 885031601119674177}
   _objectLookAtTarget: {fileID: 3092560245870284943}
+  _spawner: {fileID: 0}
   _spawnPoints: {fileID: 822962832952592333}
 --- !u!114 &5417435280929391786
 MonoBehaviour:
@@ -253,6 +254,8 @@ MonoBehaviour:
   _coolDownTimer: 0
   _isReady: 0
   _spawner: {fileID: 0}
+  _limitEnemy: 4
+  _enemiesSpawned: []
 --- !u!1 &6114420331268749609
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +515,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1276225698071347726}
-  - component: {fileID: 4200646879719221179}
+  - component: {fileID: 83891518281158175}
   m_Layer: 0
   m_Name: Despawn
   m_TagString: Untagged
@@ -535,7 +538,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 3678992883822060253}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4200646879719221179
+--- !u!114 &83891518281158175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -544,7 +547,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7191255104625429253}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18759a2679de8a49910dc64873b56dd, type: 3}
+  m_Script: {fileID: 11500000, guid: edc304439bb370b43b2fb951c15caa87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _mainCamera: {fileID: 0}

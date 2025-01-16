@@ -1,10 +1,15 @@
 using UnityEngine;
 
-public class ShipCtrl : BaseMonobehaviour
+public class ShipCtrl : AbilityObjectCtrl
 {
     [Header(" Elements ")]
     [SerializeField] protected Inventory _inventory;
     public Inventory Inventory => _inventory;
+
+    protected override string GetStringFromObjectType()
+    {
+        return ObjectType.Ship.ToString();
+    }
 
     protected override void LoadComponents()
     {

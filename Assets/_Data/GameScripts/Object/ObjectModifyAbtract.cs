@@ -18,7 +18,7 @@ public abstract class ObjectModifyAbtract : BaseMonobehaviour
     {
         if (_shootableObjectCtrl != null) return;
 
-        _shootableObjectCtrl = GetComponentInParent<ShootableObjectCtrl>();
+        _shootableObjectCtrl = GetComponent<ShootableObjectCtrl>();
 
         Debug.LogWarning(transform.name + ": LoadShootableObjectCtrl ", gameObject);
     }

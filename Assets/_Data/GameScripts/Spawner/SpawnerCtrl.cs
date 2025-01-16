@@ -3,6 +3,8 @@ using UnityEngine;
 [RequireComponent(typeof(Spawner))]
 public class SpawnerCtrl : BaseMonobehaviour
 {
+    private const string SCENE_SPAWN_POINTS = "Scene Spawn Point";
+
     [Header(" Elements ")]
     [SerializeField] protected Spawner _spawner;
     [SerializeField] protected SpawnPoints _spawnPoints;
@@ -26,7 +28,7 @@ public class SpawnerCtrl : BaseMonobehaviour
     protected virtual void LoadSpawnPoints()
     {
         if (_spawnPoints != null) return;
-        _spawnPoints = FindFirstObjectByType<SpawnPoints>();
+        _spawnPoints = GameObject.Find(SCENE_SPAWN_POINTS).GetComponent<SpawnPoints>();
         Debug.LogWarning(transform.name + ": LoadSpawnPoints", gameObject);
     }
 }

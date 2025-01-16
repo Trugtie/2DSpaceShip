@@ -16,7 +16,11 @@ MonoBehaviour:
   ObjectType: 1
   ShootableObjectHP: 6
   _dropList:
-  - ItemProfileSO: {fileID: 11400000, guid: a3f1da67f936a2d40ada93a20fa46394, type: 2}
-    Rate: 0
+  - ItemProfileSO: {fileID: 11400000, guid: 040176f142928ca43a0900f08a802951, type: 2}
+    DropRate: 100
+    MinDrop: 0
+    MaxDrop: 0
+  - ItemProfileSO: {fileID: 11400000, guid: cb9fd38a0a31ece4d9921c9c0485e7eb, type: 2}
+    DropRate: 100000
     MinDrop: 0
     MaxDrop: 0

@@ -23,7 +23,7 @@ public class InventoryDrop : InventoryAbtract
     {
         ItemInventory itemInventory = Inventory.Items[itemIndex];
 
-        ItemSpawner.Instance.Drop(itemInventory, dropPosition, dropRotation);
+        ItemSpawner.Instance.DropFromInventory(itemInventory, dropPosition, dropRotation);
 
         _inventory.Items.Remove(itemInventory);
 

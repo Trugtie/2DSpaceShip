@@ -20,8 +20,6 @@ public class SpawnPoints : BaseMonobehaviour
         {
             _spawnPoints.Add(child);
         }
-
-        Debug.LogWarning(transform.name + ": LoadSpawnPoints", gameObject);
     }
 
     public virtual Transform GetRandomSpawnPoint()

@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class ItemSpawner : Spawner
 {
+
+    [Header(" ItemSpawner Settings ")]
+    [SerializeField] protected float _gameDropRate = 1f;
+
     public static ItemSpawner Instance { get; private set; }
 
     protected override void Awake()
@@ -18,18 +22,44 @@ public class ItemSpawner : Spawner
         Instance = this;
     }
 
-    public virtual void Drop(List<DropRate> dropList, Vector3 dropPosition, Quaternion dropRotation)
+    public virtual List<ItemDropRate> Drop(List<ItemDropRate> dropList, Vector3 dropPosition, Quaternion dropRotation)
     {
-        if (dropList.Count < 1) return;
+        List<ItemDropRate> droppedItems = new List<ItemDropRate>();
 
-        ItemCode itemCode = dropList[0].ItemProfileSO.ItemCode;
+        if (dropList.Count < 1) return droppedItems;
 
-        Transform itemDrop = Spawn(itemCode.ToString(), dropPosition, dropRotation);
-        if (itemDrop == null) return;
-        itemDrop.gameObject.SetActive(true);
+        droppedItems = GetDropItems(dropList);
+
+        foreach (ItemDropRate item in droppedItems)
+        {
+            ItemCode itemCode = item.ItemProfileSO.ItemCode;
+
+            Transform itemDrop = Spawn(itemCode.ToString(), dropPosition, dropRotation);
+            if (itemDrop == null) continue;
+            itemDrop.gameObject.SetActive(true);
+        }
+
+        return droppedItems;
     }
 
-    public virtual Transform Drop(ItemInventory itemIventory, Vector3 dropPosition, Quaternion dropRotation)
+    protected virtual List<ItemDropRate> GetDropItems(List<ItemDropRate> items)
+    {
+        List<ItemDropRate> dropItems = new List<ItemDropRate>();
+        float rate, itemRate;
+
+        foreach (ItemDropRate item in items)
+        {
+            rate = Random.Range(0, 1f);
+            itemRate = item.DropRate * _gameDropRate;
+
+            if (rate <= itemRate)
+                dropItems.Add(item);
+        }
+
+        return dropItems;
+    }
+
+    public virtual Transform DropFromInventory(ItemInventory itemIventory, Vector3 dropPosition, Quaternion dropRotation)
     {
         ItemCode itemCode = itemIventory.ItemProfile.ItemCode;
 
