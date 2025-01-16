@@ -7,8 +7,10 @@ public class InputManager : MonoBehaviour
     [Header(" Settings ")]
     [SerializeField] private Vector3 _mousePosition;
     [SerializeField] private float _onFiring;
-    public Vector3 MousePosition { get => _mousePosition; }
-    public float OnFiring { get => _onFiring; }
+    private Vector4 _direction;
+    public Vector3 MousePosition => _mousePosition;
+    public float OnFiring => _onFiring;
+    public Vector4 Direction => _direction;
 
     private void Awake()
     {
@@ -29,6 +31,7 @@ public class InputManager : MonoBehaviour
     private void FixedUpdate()
     {
         GetMousePos();
+        GetDirectionByKeyDown();
     }
 
     protected virtual void GetMouseDown()
@@ -39,5 +42,25 @@ public class InputManager : MonoBehaviour
     protected virtual void GetMousePos()
     {
         _mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    }
+
+    protected virtual void GetDirectionByKeyDown()
+    {
+        _direction.x = Input.GetKeyDown(KeyCode.A) ? 1 : 0;
+        if (_direction.x == 0) _direction.x = Input.GetKeyDown(KeyCode.LeftArrow) ? 1 : 0;
+
+        _direction.y = Input.GetKeyDown(KeyCode.D) ? 1 : 0;
+        if (_direction.y == 0) _direction.x = Input.GetKeyDown(KeyCode.RightArrow) ? 1 : 0;
+
+        _direction.z = Input.GetKeyDown(KeyCode.W) ? 1 : 0;
+        if (_direction.z == 0) _direction.x = Input.GetKeyDown(KeyCode.UpArrow) ? 1 : 0;
+
+        _direction.w = Input.GetKeyDown(KeyCode.S) ? 1 : 0;
+        if (_direction.w == 0) _direction.x = Input.GetKeyDown(KeyCode.DownArrow) ? 1 : 0;
+
+        if (_direction.x == 1) Debug.Log("Left");
+        if (_direction.y == 1) Debug.Log("Right");
+        if (_direction.z == 1) Debug.Log("Up");
+        if (_direction.w == 1) Debug.Log("Down");
     }
 }
