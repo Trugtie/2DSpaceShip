@@ -5,7 +5,5 @@ using UnityEngine;
 public class ItemDropRate
 {
     public ItemProfileSO ItemProfileSO;
-    public int DropRate;
-    public int MinDrop;
-    public int MaxDrop;
+    public float DropRate;
 }

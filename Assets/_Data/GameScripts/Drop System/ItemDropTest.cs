@@ -13,7 +13,7 @@ public class ItemDropTest : BaseMonobehaviour
     protected override void Start()
     {
         base.Start();
-        InvokeRepeating(nameof(Dropping), 2, 1);
+        InvokeRepeating(nameof(Dropping), 2, 0.2f);
     }
 
     protected virtual void Dropping()
