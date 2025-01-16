@@ -2564,6 +2564,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 8626178567624931568, guid: 7ff3cb4ca58b8f64c80501338ce22c30, type: 3}
+      propertyPath: _warpSpeed
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

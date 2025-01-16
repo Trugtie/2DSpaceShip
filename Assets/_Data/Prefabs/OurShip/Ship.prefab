@@ -344,7 +344,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &849768873755215112
 Transform:
   m_ObjectHideFlags: 0
@@ -376,6 +376,10 @@ MonoBehaviour:
   _coolDownTime: 1
   _coolDownTimer: 0
   _isReady: 0
+  _isWarping: 0
+  _warpDirection: {x: 0, y: 0, z: 0, w: 0}
+  _warpSpeed: 1
+  _warpDistance: 2
 --- !u!1 &4647515648350412188
 GameObject:
   m_ObjectHideFlags: 0
