@@ -12,6 +12,11 @@ public abstract class BaseAbility : BaseMonobehaviour
 
     [SerializeField] protected bool _isReady = false;
 
+    protected virtual void Update()
+    {
+
+    }
+
     protected virtual void FixedUpdate()
     {
         CalculateCoolDown();
