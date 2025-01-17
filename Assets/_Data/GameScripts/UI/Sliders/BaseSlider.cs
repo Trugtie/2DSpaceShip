@@ -13,6 +13,11 @@ public abstract class BaseSlider : BaseMonobehaviour
         AddOnValueChangeEvent();
     }
 
+    protected virtual void FixedUpdate()
+    {
+
+    }
+
     protected virtual void AddOnValueChangeEvent()
     {
         _slider.onValueChanged.AddListener(OnValueChange);

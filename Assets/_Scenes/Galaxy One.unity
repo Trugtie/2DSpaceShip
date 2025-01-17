@@ -2733,6 +2733,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _slider: {fileID: 1747232991}
+  _currentHP: 70
+  _maxHP: 100
 --- !u!114 &1747232991
 MonoBehaviour:
   m_ObjectHideFlags: 0
