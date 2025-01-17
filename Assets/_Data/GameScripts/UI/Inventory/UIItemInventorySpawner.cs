@@ -41,4 +41,12 @@ public class UIItemInventorySpawner : Spawner
         _uiInventoryCtrl = GetComponentInParent<UIIventoryCtrl>();
         Debug.LogWarning(transform.name + ": LoadUIIventoryCtrl", gameObject);
     }
+
+    public virtual void ClearItems()
+    {
+        foreach (Transform child in _holder)
+        {
+            Despawn(child);
+        }
+    }
 }

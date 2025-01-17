@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class UIIventory : BaseMonobehaviour
+public class UIIventory : UIIventoryAbtract
 {
     [Header(" UIInventory Elements ")]
     [SerializeField] protected bool _isClose = false;
@@ -25,16 +25,36 @@ public class UIIventory : BaseMonobehaviour
     {
         base.Start();
         Hide();
+        InvokeRepeating(nameof(ShowItems), 1, 1);
     }
 
     protected virtual void FixedUpdate()
     {
-        ShowItems();
+        //ShowItems();
     }
 
     protected virtual void ShowItems()
     {
         if (_isClose) return;
+
+        ClearItems();
+
+        for (int i = 1; i < PlayerCtrl.Instance.CurrentShip.Inventory.Items.Count; i++)
+        {
+            SpawnTest(i);
+        }
+    }
+
+    protected virtual void ClearItems()
+    {
+        UIIventoryCtrl.UIItemInventorySpawner.ClearItems();
+    }
+
+    protected virtual void SpawnTest(int i)
+    {
+        Transform uiItem = UIIventoryCtrl.UIItemInventorySpawner.Spawn(UIItemInventorySpawner.UI_INVENTORY_ITEM, Vector3.zero, Quaternion.identity);
+        uiItem.localScale = Vector3.one;
+        uiItem.gameObject.SetActive(true);
     }
 
     public virtual void Toggle()
@@ -49,13 +69,13 @@ public class UIIventory : BaseMonobehaviour
 
     public virtual void Show()
     {
-        gameObject.SetActive(true);
+        UIIventoryCtrl.gameObject.SetActive(true);
         _isClose = false;
     }
 
     public virtual void Hide()
     {
-        gameObject.SetActive(false);
+        UIIventoryCtrl.gameObject.SetActive(false);
         _isClose = true;
     }
 }

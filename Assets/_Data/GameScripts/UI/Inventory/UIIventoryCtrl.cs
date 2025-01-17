@@ -14,23 +14,6 @@ public class UIIventoryCtrl : BaseMonobehaviour
     public Transform Content => _content;
     public UIItemInventorySpawner UIItemInventorySpawner => _uiItemInventorySpawner;
 
-    protected override void Start()
-    {
-        base.Start();
-        for (int i = 1; i <= 70; i++)
-        {
-            SpawnTest(i);
-        }
-    }
-
-    private void SpawnTest(int i)
-    {
-        Transform uiItem = _uiItemInventorySpawner.Spawn(UIItemInventorySpawner.UI_INVENTORY_ITEM, Vector3.zero, Quaternion.identity);
-        uiItem.name = "Item " + i;
-        uiItem.localScale = Vector3.one;
-        uiItem.gameObject.SetActive(true);
-    }
-
     protected override void LoadComponents()
     {
         base.LoadComponents();
