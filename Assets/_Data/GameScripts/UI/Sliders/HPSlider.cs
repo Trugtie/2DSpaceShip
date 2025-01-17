@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class ShipHPSlider : BaseSlider
+public class HPSlider : BaseSlider
 {
     [Header(" ShipHPSlider Elements")]
     [SerializeField] protected float _currentHP = 70;
