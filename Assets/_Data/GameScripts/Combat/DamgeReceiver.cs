@@ -1,8 +1,11 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CircleCollider2D))]
 public abstract class DamgeReceiver : BaseMonobehaviour
 {
+    public Action OnHpChange;
+
     [Header(" Elements ")]
     [SerializeField] protected CircleCollider2D _circleCollider2D;
 
@@ -10,6 +13,15 @@ public abstract class DamgeReceiver : BaseMonobehaviour
     [SerializeField] protected int _currentHP = 1;
     [SerializeField] protected int _maxHP = 2;
     [SerializeField] protected bool _isDead = false;
+
+    public int CurrentHP => _currentHP;
+    public int MaxHP => _maxHP;
+
+    protected override void Start()
+    {
+        base.Start();
+        Reborn();
+    }
 
     protected override void OnEnable()
     {
@@ -43,6 +55,7 @@ public abstract class DamgeReceiver : BaseMonobehaviour
     {
         _currentHP = _maxHP;
         _isDead = false;
+        OnHpChange?.Invoke();
     }
 
     public virtual void Add(int add)
@@ -52,6 +65,8 @@ public abstract class DamgeReceiver : BaseMonobehaviour
         _currentHP += add;
 
         if (_currentHP > _maxHP) _currentHP = _maxHP;
+
+        OnHpChange?.Invoke();
     }
 
     public virtual void Deduct(int deduct)
@@ -61,6 +76,8 @@ public abstract class DamgeReceiver : BaseMonobehaviour
         _currentHP -= deduct;
 
         if (_currentHP < 0) _currentHP = 0;
+
+        OnHpChange?.Invoke();
 
         CheckIsDead();
     }

@@ -13,6 +13,7 @@ public abstract class ShootableObjectCtrl : BaseMonobehaviour
     [SerializeField] protected ObjectMovement _objectMovement;
     [SerializeField] protected ObjectLookAtTarget _objectLookAtTarget;
     [SerializeField] protected Spawner _spawner;
+    [SerializeField] protected DamgeReceiver _damgeReceiver;
     public Transform Model => _model;
     public Despawn Despawn => _despawn;
     public ShootableObjectSO ShootableObjectSO => _shootableObjectSO;
@@ -21,6 +22,7 @@ public abstract class ShootableObjectCtrl : BaseMonobehaviour
     public ObjectMovement ObjectMovement => _objectMovement;
     public ObjectLookAtTarget ObjectLookAtTarget => _objectLookAtTarget;
     public Spawner Spawner => _spawner;
+    public DamgeReceiver DamgeReceiver => _damgeReceiver;
 
     protected override void LoadComponents()
     {
@@ -32,9 +34,18 @@ public abstract class ShootableObjectCtrl : BaseMonobehaviour
         LoadObjectMovement();
         LoadObjectLookAtTarget();
         LoadSpawner();
+        LoadDamgeReceiver();
     }
 
-    private void LoadSpawner()
+    protected virtual void LoadDamgeReceiver()
+    {
+        if (_damgeReceiver != null) return;
+        _damgeReceiver = GetComponentInChildren<DamgeReceiver>();
+
+        Debug.LogWarning(transform.name + ": LoadDamgeReceiver", gameObject);
+    }
+
+    protected virtual void LoadSpawner()
     {
         if (_spawner != null) return;
         _spawner = transform?.parent?.parent.GetComponent<Spawner>();

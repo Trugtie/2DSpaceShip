@@ -11,6 +11,11 @@ public class BaseMonobehaviour : MonoBehaviour
     {
     }
 
+    protected virtual void OnDestroy()
+    {
+
+    }
+
     protected virtual void OnEnable()
     {
 

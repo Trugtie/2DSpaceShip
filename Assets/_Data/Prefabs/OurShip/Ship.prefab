@@ -638,7 +638,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _circleCollider2D: {fileID: 5143878371455275508}
   _currentHP: 2
-  _maxHP: 2
+  _maxHP: 20
   _isDead: 0
 --- !u!1 &6881648590146456029
 GameObject:
@@ -793,6 +793,7 @@ MonoBehaviour:
   _objectMovement: {fileID: 5991468946907900840}
   _objectLookAtTarget: {fileID: 8274028505392478381}
   _spawner: {fileID: 0}
+  _damgeReceiver: {fileID: 285589127859548934}
   _spawnPoints: {fileID: 7177622492959349112}
   _inventory: {fileID: 3600718404074027399}
 --- !u!1 &8722694458410702043
