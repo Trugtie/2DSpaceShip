@@ -7,6 +7,7 @@ public class HPBar : BaseMonobehaviour
     [SerializeField] protected ShootableObjectCtrl _shootableObjectCtrl;
     [SerializeField] protected HPSlider _hpSlider;
     [SerializeField] protected FollowTarget _followTarget;
+    [SerializeField] protected Spawner _spawner;
 
     protected virtual void FixedUpdate()
     {
@@ -16,6 +17,15 @@ public class HPBar : BaseMonobehaviour
     protected virtual void DisplayHP()
     {
         if (_shootableObjectCtrl == null) return;
+
+        bool isDead = _shootableObjectCtrl.DamgeReceiver.IsDead();
+
+        if (isDead)
+        {
+            _spawner.Despawn(transform);
+            return;
+        }
+
         _hpSlider.SetCurrentHP(_shootableObjectCtrl.DamgeReceiver.CurrentHP);
         _hpSlider.SetMaxHP(_shootableObjectCtrl.DamgeReceiver.MaxHP);
     }
@@ -25,9 +35,17 @@ public class HPBar : BaseMonobehaviour
         base.LoadComponents();
         LoadHPSilder();
         LoadFollowTarget();
+        LoadSpawner();
     }
 
-    private void LoadFollowTarget()
+    private void LoadSpawner()
+    {
+        if (_spawner != null) return;
+        _spawner = transform.parent.GetComponentInParent<Spawner>();
+        Debug.LogWarning(transform.name + ": LoadSpawner", gameObject);
+    }
+
+    protected virtual void LoadFollowTarget()
     {
         if (_followTarget != null) return;
         _followTarget = GetComponent<FollowTarget>();

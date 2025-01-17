@@ -91,7 +91,7 @@ public abstract class DamgeReceiver : BaseMonobehaviour
         OnDead();
     }
 
-    protected virtual bool IsDead()
+    public virtual bool IsDead()
     {
         return _currentHP <= 0;
     }

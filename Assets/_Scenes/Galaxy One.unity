@@ -3115,9 +3115,13 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4528994404092729974, guid: fb22d2f7871abdf49b7d6e936b9b58dc, type: 3}
+      propertyPath: _spawner
+      value: 
+      objectReference: {fileID: 1812841899}
+    - target: {fileID: 4528994404092729974, guid: fb22d2f7871abdf49b7d6e936b9b58dc, type: 3}
       propertyPath: _shootableObjectCtrl
       value: 
-      objectReference: {fileID: 1211244822}
+      objectReference: {fileID: 0}
     - target: {fileID: 4774486237854143666, guid: fb22d2f7871abdf49b7d6e936b9b58dc, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
