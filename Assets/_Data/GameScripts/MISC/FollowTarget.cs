@@ -18,4 +18,9 @@ public class FollowTarget : BaseMonobehaviour
         if (_target == null) return;
         transform.position = Vector3.Lerp(transform.position, _target.position, _followSpeed * Time.fixedDeltaTime);
     }
+
+    public virtual void SetTarget(Transform newTarget)
+    {
+        _target = newTarget;
+    }
 }

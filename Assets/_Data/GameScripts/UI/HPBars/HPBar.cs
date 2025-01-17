@@ -5,13 +5,8 @@ public class HPBar : BaseMonobehaviour
 {
     [Header("HPBar Elements")]
     [SerializeField] protected ShootableObjectCtrl _shootableObjectCtrl;
-    [SerializeField] protected HPSlider _HPSlider;
-
-    protected override void LoadComponents()
-    {
-        base.LoadComponents();
-        LoadHPSilder();
-    }
+    [SerializeField] protected HPSlider _hpSlider;
+    [SerializeField] protected FollowTarget _followTarget;
 
     protected virtual void FixedUpdate()
     {
@@ -21,19 +16,39 @@ public class HPBar : BaseMonobehaviour
     protected virtual void DisplayHP()
     {
         if (_shootableObjectCtrl == null) return;
-        _HPSlider.SetCurrentHP(_shootableObjectCtrl.DamgeReceiver.CurrentHP);
-        _HPSlider.SetMaxHP(_shootableObjectCtrl.DamgeReceiver.MaxHP);
+        _hpSlider.SetCurrentHP(_shootableObjectCtrl.DamgeReceiver.CurrentHP);
+        _hpSlider.SetMaxHP(_shootableObjectCtrl.DamgeReceiver.MaxHP);
     }
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadHPSilder();
+        LoadFollowTarget();
+    }
+
+    private void LoadFollowTarget()
+    {
+        if (_followTarget != null) return;
+        _followTarget = GetComponent<FollowTarget>();
+        Debug.LogWarning(transform.name + ": LoadFollowTarget", gameObject);
+    }
+
 
     protected virtual void LoadHPSilder()
     {
-        if (_HPSlider != null) return;
-        _HPSlider = GetComponentInChildren<HPSlider>();
+        if (_hpSlider != null) return;
+        _hpSlider = GetComponentInChildren<HPSlider>();
         Debug.LogWarning(transform.name + ": LoadHPSilder", gameObject);
     }
 
     public void SetShootableObjectCtrl(ShootableObjectCtrl shootableObjectCtrl)
     {
         _shootableObjectCtrl = shootableObjectCtrl;
+    }
+
+    public void SetFollowTarget(Transform newTarget)
+    {
+        _followTarget.SetTarget(newTarget);
     }
 }
