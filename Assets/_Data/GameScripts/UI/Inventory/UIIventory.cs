@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class UIIventory : BaseMonobehaviour
@@ -24,6 +25,18 @@ public class UIIventory : BaseMonobehaviour
     {
         base.Start();
         Hide();
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        ShowItems();
+    }
+
+    protected virtual void ShowItems()
+    {
+        if (_isClose) return;
+
+        Debug.Log(PlayerCtrl.Instance.CurrentShip.Inventory.Items.Count);
     }
 
     public virtual void Toggle()
