@@ -16,6 +16,8 @@ public class UIInventoryItem : BaseMonobehaviour
     [SerializeField] protected ItemInventory _itemInventory;
     [SerializeField] protected Image _itemImage;
 
+    public ItemInventory ItemInventory => _itemInventory;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();

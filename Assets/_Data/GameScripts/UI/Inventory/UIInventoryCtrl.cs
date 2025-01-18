@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class UIIventoryCtrl : BaseMonobehaviour
+public class UIInventoryCtrl : BaseMonobehaviour
 {
     private const string SCROLL_VIEW = "Scroll View";
     private const string CONTENT = "Content";

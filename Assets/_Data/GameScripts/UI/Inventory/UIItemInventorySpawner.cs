@@ -9,8 +9,8 @@ public class UIItemInventorySpawner : Spawner
     public static UIItemInventorySpawner Instance { get; private set; }
 
     [Header(" UIItemInventorySpawner Elements ")]
-    [SerializeField] protected UIIventoryCtrl _uiInventoryCtrl;
-    public UIIventoryCtrl UIIventoryCtrl => _uiInventoryCtrl;
+    [SerializeField] protected UIInventoryCtrl _uiInventoryCtrl;
+    public UIInventoryCtrl UIIventoryCtrl => _uiInventoryCtrl;
 
 
     protected override void Awake()
@@ -38,7 +38,7 @@ public class UIItemInventorySpawner : Spawner
     private void LoadUIIventoryCtrl()
     {
         if (_uiInventoryCtrl != null) return;
-        _uiInventoryCtrl = GetComponentInParent<UIIventoryCtrl>();
+        _uiInventoryCtrl = GetComponentInParent<UIInventoryCtrl>();
         Debug.LogWarning(transform.name + ": LoadUIIventoryCtrl", gameObject);
     }
 

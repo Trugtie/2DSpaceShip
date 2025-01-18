@@ -4,6 +4,6 @@ public class BtnCloseInventory : BaseButton
 {
     protected override void OnClick()
     {
-        UIIventory.Instance.Hide();
+        UIInventory.Instance.Hide();
     }
 }
