@@ -15,4 +15,6 @@ MonoBehaviour:
   ItemCode: 1
   ItemType: 1
   ItemName: Iron Ore
-  defaultMaxStack: 7
+  DefaultMaxStack: 7
+  ItemSprite: {fileID: -6946007662723423348, guid: be19f662a300f844c9a288a6c89ebf38, type: 3}
+  ItemRecipesNeedToUpgradePerLevel: []

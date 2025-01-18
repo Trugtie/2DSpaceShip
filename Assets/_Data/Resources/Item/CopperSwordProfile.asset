@@ -16,6 +16,7 @@ MonoBehaviour:
   ItemType: 2
   ItemName: Copper Sword
   DefaultMaxStack: 1
+  ItemSprite: {fileID: 7219181263730686832, guid: 09c73fcc905d08e4b9bcd48c9a24af43, type: 3}
   ItemRecipesNeedToUpgradePerLevel:
   - ItemRecipeIngredients:
     - ItemProfileSO: {fileID: 11400000, guid: 040176f142928ca43a0900f08a802951, type: 2}

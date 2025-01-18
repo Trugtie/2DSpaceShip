@@ -15,4 +15,6 @@ MonoBehaviour:
   ItemCode: 2
   ItemType: 1
   ItemName: Gold Ore
-  defaultMaxStack: 7
+  DefaultMaxStack: 7
+  ItemSprite: {fileID: -3180619178420385107, guid: 3baee9ca9d75b5f46a5f280006ed0700, type: 3}
+  ItemRecipesNeedToUpgradePerLevel: []

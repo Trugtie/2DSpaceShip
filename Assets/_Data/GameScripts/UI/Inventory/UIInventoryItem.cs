@@ -1,23 +1,34 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class UIInventoryItem : BaseMonobehaviour
 {
     private const string ITEM_NAME_TEXT = "ItemNameText";
     private const string ITEM_COUNT_TEXT = "ItemCountText";
+    private const string ITEM_IMAGE = "ItemImage";
 
     [Header(" UIInventoryItem Elements ")]
     [SerializeField] protected TextMeshProUGUI _itemNameText;
     [SerializeField] protected TextMeshProUGUI _itemCountText;
     [SerializeField] protected ItemInventory _itemInventory;
+    [SerializeField] protected Image _itemImage;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadItemNameText();
         LoadItemCountText();
+        LoadItemImage();
+    }
+
+    protected virtual void LoadItemImage()
+    {
+        if (_itemImage != null) return;
+        _itemImage = transform.GetChild(0).Find(ITEM_IMAGE).GetComponent<Image>();
+        Debug.LogWarning(transform.name + ": LoadItemImage", gameObject);
     }
 
     protected virtual void LoadItemCountText()
@@ -38,6 +49,7 @@ public class UIInventoryItem : BaseMonobehaviour
     {
         _itemNameText.SetText(item.ItemProfile.ItemName);
         _itemCountText.SetText(item.itemCount.ToString());
+        _itemImage.sprite = item.ItemProfile.ItemSprite;
         _itemInventory = item;
     }
 }
