@@ -89,3 +89,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _realParent: {fileID: 0}
+  _dragItemImage: {fileID: 9129191601528361961}
