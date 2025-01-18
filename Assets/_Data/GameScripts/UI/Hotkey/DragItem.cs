@@ -1,11 +1,28 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class DragItem : BaseMonobehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    [Header(" DragItem Elements ")]
+    [SerializeField] protected Transform _realParent;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        LoadRealParent();
+    }
+
+    private void LoadRealParent()
+    {
+        if (_realParent != null) return;
+        _realParent = transform.parent;
+        Debug.LogWarning(transform.name + ": LoadRealParent", gameObject);
+    }
+
     public void OnBeginDrag(PointerEventData eventData)
     {
-        Debug.Log("Begin Drag");
+        transform.SetParent(UIHotKeyCtrl.Instance.transform);
     }
 
     public void OnDrag(PointerEventData eventData)
@@ -18,6 +35,6 @@ public class DragItem : BaseMonobehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        Debug.Log("End Drag");
+        transform.SetParent(_realParent);
     }
 }
