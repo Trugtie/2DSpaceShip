@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -5,6 +6,7 @@ public class UIIventory : UIIventoryAbtract
 {
     [Header(" UIInventory Elements ")]
     [SerializeField] protected bool _isClose = false;
+    [SerializeField] protected InventorySort _sortMode;
 
     public static UIIventory Instance { get; private set; }
 
@@ -40,6 +42,24 @@ public class UIIventory : UIIventoryAbtract
         foreach (ItemInventory item in items)
         {
             spawner.SpawnItem(item);
+        }
+
+        SortItems();
+    }
+
+    protected virtual void SortItems()
+    {
+        switch (_sortMode)
+        {
+            case InventorySort.ByName:
+                Debug.Log("Sort by name");
+                break;
+            case InventorySort.ByCount:
+                Debug.Log("Sort by count");
+                break;
+            default:
+                Debug.Log("No Sort");
+                break;
         }
     }
 

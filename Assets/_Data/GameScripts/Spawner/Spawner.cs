@@ -108,6 +108,8 @@ public abstract class Spawner : BaseMonobehaviour
 
     public virtual void Despawn(Transform obj)
     {
+        if (_poolObjs.Contains(obj)) return;
+
         _poolObjs.Add(obj);
         obj.gameObject.SetActive(false);
         _spawnedCount--;
