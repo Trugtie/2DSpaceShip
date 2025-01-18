@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class UIIventory : UIIventoryAbtract
@@ -28,33 +28,24 @@ public class UIIventory : UIIventoryAbtract
         InvokeRepeating(nameof(ShowItems), 1, 1);
     }
 
-    protected virtual void FixedUpdate()
-    {
-        //ShowItems();
-    }
-
     protected virtual void ShowItems()
     {
         if (_isClose) return;
 
         ClearItems();
 
-        for (int i = 1; i < PlayerCtrl.Instance.CurrentShip.Inventory.Items.Count; i++)
+        List<ItemInventory> items = PlayerCtrl.Instance.CurrentShip.Inventory.Items;
+        UIItemInventorySpawner spawner = UIIventoryCtrl.UIItemInventorySpawner;
+
+        foreach (ItemInventory item in items)
         {
-            SpawnTest(i);
+            spawner.SpawnItem(item);
         }
     }
 
     protected virtual void ClearItems()
     {
         UIIventoryCtrl.UIItemInventorySpawner.ClearItems();
-    }
-
-    protected virtual void SpawnTest(int i)
-    {
-        Transform uiItem = UIIventoryCtrl.UIItemInventorySpawner.Spawn(UIItemInventorySpawner.UI_INVENTORY_ITEM, Vector3.zero, Quaternion.identity);
-        uiItem.localScale = Vector3.one;
-        uiItem.gameObject.SetActive(true);
     }
 
     public virtual void Toggle()

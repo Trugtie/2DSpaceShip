@@ -49,4 +49,15 @@ public class UIItemInventorySpawner : Spawner
             Despawn(child);
         }
     }
+
+    public virtual void SpawnItem(ItemInventory item)
+    {
+        Transform uiItemPrefab = Spawn(UI_INVENTORY_ITEM, Vector3.zero, Quaternion.identity);
+        uiItemPrefab.localScale = Vector3.one;
+
+        UIInventoryItem uiItem = uiItemPrefab.GetComponent<UIInventoryItem>();
+        uiItem.ShowItem(item);
+
+        uiItemPrefab.gameObject.SetActive(true);
+    }
 }
