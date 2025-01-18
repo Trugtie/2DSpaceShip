@@ -49,26 +49,13 @@ public class UIInventory : UIInventoryAbtract
 
     protected virtual void SortItems()
     {
-        switch (_sortMode)
-        {
-            case InventorySort.ByName:
-                SortUIInventoryItem();
-                break;
-            case InventorySort.ByCount:
-                Debug.Log("Sort by count");
-                break;
-            default:
-                Debug.Log("No Sort");
-                break;
-        }
-    }
+        if (_sortMode == InventorySort.NoSort) return;
 
-    protected virtual void SortUIInventoryItem()
-    {
         int uiItemsCount = UIInventoryCtrl.Content.childCount;
 
         Transform currentItemTransform, nextItemTransform;
         string currentItemName, nextItemName;
+        int currentItemCount, nextItemCount;
 
         bool isSorting = false;
 
@@ -79,30 +66,52 @@ public class UIInventory : UIInventoryAbtract
 
             nextItemTransform = UIInventoryCtrl.Content.GetChild(i + 1);
 
-            currentItemName = currentItemTransform
-                .GetComponent<UIInventoryItem>()
-                .ItemInventory
-                .ItemProfile
-                .ItemName;
+            bool isSwap = false;
 
-            nextItemName = nextItemTransform
-                .GetComponent<UIInventoryItem>()
-                .ItemInventory
-                .ItemProfile
-                .ItemName;
+            switch (_sortMode)
+            {
+                case InventorySort.ByName:
+                    currentItemName = currentItemTransform
+                         .GetComponent<UIInventoryItem>()
+                         .ItemInventory
+                         .ItemProfile
+                         .ItemName;
 
-            bool isGreater = string.Compare(currentItemName, nextItemName) == 1 ? true : false;
+                    nextItemName = nextItemTransform
+                        .GetComponent<UIInventoryItem>()
+                        .ItemInventory
+                        .ItemProfile
+                        .ItemName;
 
-            Debug.Log($"{currentItemName} vs {nextItemName} = {isGreater}");
+                    isSwap = string.Compare(currentItemName, nextItemName) == 1 ? true : false;
 
-            if (isGreater)
+                    break;
+
+                case InventorySort.ByCount:
+
+                    currentItemCount = currentItemTransform
+                         .GetComponent<UIInventoryItem>()
+                         .ItemInventory
+                         .itemCount;
+
+                    nextItemCount = nextItemTransform
+                        .GetComponent<UIInventoryItem>()
+                         .ItemInventory
+                         .itemCount;
+
+                    isSwap = currentItemCount > nextItemCount;
+
+                    break;
+            }
+
+            if (isSwap)
             {
                 SwapUIInventoryItemTransform(currentItemTransform, nextItemTransform);
                 isSorting = true;
             }
         }
 
-        if (isSorting) SortUIInventoryItem();
+        if (isSorting) SortItems();
     }
 
     protected virtual void SwapUIInventoryItemTransform(Transform currentItemTransform, Transform nextItemTransform)
