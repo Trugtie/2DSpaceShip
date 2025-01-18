@@ -11,6 +11,7 @@ public class UIInventoryItem : BaseMonobehaviour
     [Header(" UIInventoryItem Elements ")]
     [SerializeField] protected TextMeshProUGUI _itemNameText;
     [SerializeField] protected TextMeshProUGUI _itemCountText;
+    [SerializeField] protected ItemInventory _itemInventory;
 
     protected override void LoadComponents()
     {
@@ -37,5 +38,6 @@ public class UIInventoryItem : BaseMonobehaviour
     {
         _itemNameText.SetText(item.ItemProfile.ItemName);
         _itemCountText.SetText(item.itemCount.ToString());
+        _itemInventory = item;
     }
 }

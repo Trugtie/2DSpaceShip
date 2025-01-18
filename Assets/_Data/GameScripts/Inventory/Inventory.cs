@@ -127,6 +127,7 @@ public class Inventory : BaseMonobehaviour
     {
         ItemInventory emptyItemInventory = new ItemInventory()
         {
+            ItemID = ItemInventory.RandomID(),
             ItemProfile = itemProfile,
             maxStack = itemProfile.DefaultMaxStack,
         };
